@@ -22,4 +22,5 @@ Afazeres/pendências do projeto (TODOs).
 - [ ] (I0 / ADR) Decidir mesclagem de histórico git: `git subtree add` de Planner em `packages/vscode/` (preserva histórico) vs `merge --allow-unrelated-histories`.
 - [ ] Implementar o visualizador: decidir **reaproveitar** o código do Planner (não validado em execução) vs **reescrever**; alvo `packages/vscode/`.
 - [ ] Renomear repo **MinimalDocs → EasyDocs** (pasta): produto já é EasyDocs (ADR 0004); ajustar nomes/refs em docs.
+- [ ] (ADR 0007) Validar `seed/AGENTS.md` reescrito em ≥2 modelos (conformância) antes de aplicar o mesmo estilo ao root `AGENTS.md`.
 - [x] (ADR 0001, active) Colapsar PRD/ARCH/DESIGN em ADRs tagueados por domínio — piloto aplicado no repo (PRD âncora + ARCH/DESIGN views; AGENTS.md raiz+seed e seed/SCAFFOLD.md atualizados).

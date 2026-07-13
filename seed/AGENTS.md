@@ -1,40 +1,49 @@
 # AGENTS.md
 
-> Segue a convenção [agents.md](https://agents.md). **Retomada:** leia este arquivo → [[ROADMAP]] (o que fazer) + `docs/adr/` (porquês). Tudo relevante referenciado aqui; arquivado é off-graph.
+> Protocolo de instruções para agentes de coding, no formato aberto [agents.md](https://agents.md). Ao iniciar, leia este arquivo e retome o trabalho pelas docs citadas abaixo.
 
-## Início
-- Se `SCAFFOLD.md` existir nesta pasta (não procurar aninhado): execute-o **1×**. Senão: siga o método.
-- Config do agente: se você tem um arquivo de config padrão (ex.: `CLAUDE.md`), **crie-o na 1ª execução** referenciando [[AGENTS]] como **fonte canônica** (lida primeiro, com precedência), sem contrariá-lo. Não entra no Mapa; é privado. Use-o só p/ **rascunho efêmero seu**; o que vale p/ o projeto ou outro agente **vai p/ a doc canônica** (ver Método), nunca só no seu config — senão some na troca de agente.
+## Glossário (siglas usadas neste arquivo)
+- **ADR** — Architecture Decision Record: registro de uma decisão, em `docs/adr/`, formato Nygard.
+- **SCAFFOLD** — arquivo `SCAFFOLD.md` que cria a estrutura de docs de um projeto novo e depois se apaga.
+- **I0 / I1 / I2** — três invariantes do projeto (regras que não podem ser quebradas); ver seção Invariantes.
+- **DEVE** — regra obrigatória. **DEVERIA** — orientação recomendada, não obrigatória.
 
-## Mapa (docs canônicas em `docs/`; raiz só `AGENTS`+`README`; não listar diretórios; arquivado = off-graph)
-| Arquivo | Quando ler |
+## Início (o que fazer ao abrir este projeto)
+1. SE existir `SCAFFOLD.md` nesta pasta: execute-o uma única vez e depois apague-o.
+2. SENÃO: siga o Método abaixo.
+3. Na primeira execução, SE você (agente) usa um arquivo de configuração próprio (ex.: `CLAUDE.md`), crie-o referenciando este `AGENTS.md` como fonte canônica. Esse arquivo é privado, não entra nas docs do projeto, e serve apenas ao seu rascunho efêmero.
+
+## Mapa de documentos (onde ler o quê)
+A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `docs/`.
+
+| Documento | Quando ler |
 |---|---|
-| [[PRD]] | âncora mínima: problema, público, não-objetivos, objetivo inicial (não é decisão) |
-| (views) ARCHITECTURE/DESIGN | **virtuais** (plugin): pastas `architecture`/`design` montadas a partir de ADRs por domínio — ver `docs/adr/INDEX.md` |
-| [[README]] | visão p/ humano |
-| [[ROADMAP]] | **sempre, p/ retomar** — afazeres/pendências |
-| `docs/adr/INDEX.md` | decisões e porquês — **sob demanda**; status no índice |
-| [[CHANGELOG]] | histórico de versões |
-| `history/INDEX.md` | arquivado — off-graph (só se vasculhar) |
+| `docs/PRD.md` | Âncora mínima: problema, público, não-objetivos, objetivo inicial. O que não é decisão. |
+| ARCHITECTURE e DESIGN | Views virtuais geradas pelo plugin a partir dos ADRs (domínios `architecture` e `design`). Não são arquivos e não se edita. |
+| `docs/README.md` | Visão para humano. |
+| `docs/ROADMAP.md` | Sempre, para retomar: afazeres e pendências. |
+| `docs/adr/INDEX.md` | Decisões (ADRs) e seus status. Leitura sob demanda. |
+| `docs/CHANGELOG.md` | Histórico de versões. |
+| `history/INDEX.md` | Arquivado, fora do grafo. Ler apenas se necessário. |
 
-## Método
-- Iteração = brainstorm: questionar, checar consistência, digerir em detalhe **na doc** — o chat recebe só o essencial (ver `Resposta` abaixo), nunca fica vazio de conteúdo útil.
-- **Resposta:** o definitivo/simples → responda já, curto. O que pede decisão ou altera doc → vira tópico. No chat: a resposta + os **títulos** dos pendentes + a **descrição de UM só** tópico (o mais importante × abrangência) + **um pedido**.
-- **Documentar é execução direta, sem pedir permissão** — de forma **objetiva** (≠ reduzida): **tópico = título + explicação**, nunca só o título (outro agente não deve inventar a explicação de um título alheio). Todos os tópicos ficam documentados em detalhe, autossuficientes p/ qualquer agente retomar e apresentá-los *as-it-is*.
-- **Decisões significativas → ADR** (`docs/adr/`, formato Nygard; indexadas; aberta = `status: proposed`).
-- **Afazeres → [[ROADMAP]]**.
-- **Persistência imediata:** doc/ROADMAP atualizados **antes** de responder no chat — a conversa pode ser abandonada a qualquer momento e outro agente retoma **só pelas docs**, sem handoff. O que **aguarda decisão do dono** entra no [[ROADMAP]] (ou ADR `proposed`) **antes** da pergunta no chat; sai quando decidido.
-- A cada iteração, revisar [[ROADMAP]] + ADRs `proposed` (um brainstorm pode resolver sem o usuário notar).
-- Doc canônica = estado atual; `history/` = off-graph.
-- **Formato Obsidian:** refs entre docs = `[[wikilink]]` (grafo = mapa mental); `README` usa links padrão (GitHub); `history/` fica fora do grafo.
-- **Propor→aprovar→executar** = só p/ mudança **estrutural** (I0: novo tipo de artefato/termo/doc/pasta) ou p/ alterar **este arquivo** (I2: exige aprovação explícita do dono do projeto — nunca por sua iniciativa). Atualizar **conteúdo** de PRD/ARCHITECTURE/DESIGN/README/ROADMAP em resposta direta a uma instrução do usuário (nome, objetivo, rename, item do ROADMAP) é execução direta.
+## Método (como operar)
+- Cada iteração é um brainstorm: questione, confira a consistência e registre o resultado nas docs. O chat recebe apenas o essencial.
+- Responda o definitivo de forma curta e direta. O que pede uma decisão ou altera uma doc vira um tópico.
+- No chat, dê: a resposta, os títulos dos pendentes, a descrição de UM tópico (o mais importante por abrangência) e UM pedido.
+- Documentar é execução direta, sem pedir permissão. Escreva de forma objetiva: cada tópico tem título e explicação completa, nunca só o título. Exemplo: ao concluir uma tarefa, registre o que foi decidido em `docs/ROADMAP.md` (ou em um ADR) antes de responder no chat.
+- Decisões significativas viram ADRs em `docs/adr/` (formato Nygard), indexados; um ADR aberto tem status `proposed`.
+- Afazeres vão para `docs/ROADMAP.md`.
+- Persistência imediata: atualize a doc ou o ROADMAP ANTES de responder no chat, para que outra sessão retome sem handoff. Exemplo: se uma decisão aguarda o dono, registre-a no ROADMAP (ou como ADR `proposed`) antes de perguntar.
+- A cada iteração, revise `docs/ROADMAP.md` e os ADRs com status `proposed`.
+- Formato das docs: referências entre docs usam `[[wikilink]]` (Obsidian); o `README.md` usa links padrão; `history/` fica fora do grafo.
+- Mudança estrutural (I0: novo artefato/termo/doc/pasta) ou alteração deste arquivo (I2) DEVE seguir propor→aprovar→executar, com aprovação explícita do dono para I2. Atualizar o conteúdo de PRD/ROADMAP/etc. em resposta a uma instrução direta do usuário é execução direta.
 
-## Invariantes
-- **I0** novo **artefato/termo/doc/pasta**: propor→ratificar→codificar aqui→usar — mudança **abrangente** (registre como ADR, com justificativa); termos preferem o **padrão da indústria**.
-- **I1** ler/operar só nesta pasta.
-- **I2** este arquivo só muda com aprovação explícita do dono do projeto — nunca por sua iniciativa.
+## Invariantes (regras que não podem ser quebradas)
+- **I0** — novo artefato, termo, doc ou pasta: DEVE seguir propor→ratificar→codificar→usar. É mudança abrangente; registre como ADR com justificativa. Prefira termos padrão da indústria.
+- **I1** — DEVE ler e operar apenas nesta pasta.
+- **I2** — este arquivo (`AGENTS.md`) DEVE mudar somente com aprovação explícita do dono do projeto. Nunca por iniciativa do agente.
 
 ## Comportamento / Operação
-- Objetivo claro (senão pergunte); pergunta é pergunta; "né?/não?" confirma premissa; tarefa grande→plano; **doc = fonte de verdade**.
-- Git imediato (repo próprio); **push só com aprovação**; commit livre; [Conventional Commits](https://www.conventionalcommits.org/).
-- **Versão** ([SemVer](https://semver.org/)): corrente = **tag `vX.Y.Z`**, espelhada no topo do `CHANGELOG` ([Keep a Changelog](https://keepachangelog.com)); bump pelos commits (`fix`→patch, `feat`→minor, `!`/`BREAKING`→major); nasce em `0.1.0`. Release = mover `[Unreleased]`→`[X.Y.Z] - data` + criar a tag. Com código, o manifesto nativo (`package.json`…) espelha a tag.
+- Mantenha o objetivo claro; se não estiver, pergunte. Uma pergunta é uma pergunta; confirme premissas com o dono quando necessário. Tarefas grandes DEVEM ser divididas em um plano.
+- Use git imediatamente (repo próprio). DEVE fazer push somente com aprovação. Commits são livres e seguem Conventional Commits.
+- Versão: SemVer. A versão corrente é a tag `vX.Y.Z`, espelhada no topo do `CHANGELOG.md`. Bump por commits (`fix`→patch, `feat`→minor, `!`/`BREAKING`→major); nasce em `0.1.0`. Release = mover `[Unreleased]` para `[X.Y.Z] - data` e criar a tag. Com código, o manifesto nativo (ex.: `package.json`) espelha a tag.
