@@ -9,6 +9,7 @@ MinimalDocs não tem runtime. É um conjunto de arquivos estáticos que definem 
 - **`AGENTS.md`** (raiz) — protocolo canônico do agente; fonte de verdade para comportamento.
 - **`SCAFFOLD.md`** (raiz, efêmero) — inicializador; cria a estrutura em `docs/` e se auto-apaga.
 - **`README.md`** (raiz) — entrada p/ humano; aponta para `docs/`.
+- **`seed/`** — o entregável do gerador: arquivos originais/inaalterados (`AGENTS.md` + `SCAFFOLD.md`) copiados para um projeto novo. **Não executar aqui**; só no destino.
 - **`docs/`** — docs canônicas: `PRD`, `ARCHITECTURE`, `DESIGN`, `ROADMAP`, `CHANGELOG`.
 - **`docs/adr/`** — ADRs Nygard indexados (`INDEX.md` + `NNNN-*.md`).
 - **`history/`** — arquivado off-graph (`INDEX.md`).

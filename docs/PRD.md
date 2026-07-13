@@ -12,7 +12,10 @@ Projetos nascem sem documentação estruturada; agentes de IA perdem contexto en
 Um scaffold de documentação mínimo, agnóstico a stack, centrado em `AGENTS.md` (protocolo do agente) + `SCAFFOLD.md` (inicializador). Define convenções: docs canônicas em `docs/`, ADRs Nygard, Keep a Changelog + SemVer, Conventional Commits, wikilinks Obsidian.
 
 ## Produto
-Repositório-template copiável. Sem código de runtime — só arquivos de documentação e config (.editorconfig, .gitignore, LICENSE).
+**Gerador de projetos** (não é um projeto de runtime). O próprio MinimalDocs usa o protocolo `AGENTS.md` para manter suas docs; o *entregável* é a pasta `seed/` — os arquivos originais e inalterados (`AGENTS.md` + `SCAFFOLD.md`) copiados para a pasta de um projeto novo, onde o `SCAFFOLD.md` então executa e cria as docs daquele projeto.
+
+- Sem código de runtime; só arquivos de documentação e config (.editorconfig, .gitignore, LICENSE).
+- `seed/` é o "código gerado": a semente copiável. **Não deve ser executado dentro de MinimalDocs** — só no projeto destino.
 
 ## Público
 Donos de projeto que querem documentação viva mantida por agentes, com baixo atrito inicial.

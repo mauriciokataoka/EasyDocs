@@ -6,6 +6,9 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 
 ## [Unreleased]
 
+### Changed
+- PRD/ARCHITECTURE: esclarecem que MinimalDocs é um **gerador de projetos** e `seed/` é a semente copiável (não executada no próprio repo).
+
 ## [0.1.0] - 2026-07-13
 
 ### Added
