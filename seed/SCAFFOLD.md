@@ -31,6 +31,7 @@
 - **`assets/`** (pasta, sem doc) — mídias/refs que alimentam o trabalho (prints, ícones, fixtures); o usuário põe o que quiser aqui. Convenção difundida (sem 1 spec formal): React/Vue, Android (`app/src/main/assets/`), Unity (`Assets/`) usam esse nome — não invente outro (`media/`, `static/`...).
 
 ## Convenções-baseline (citar a fonte no topo do doc que segue um padrão)
+- **AGENTS.md** (https://agents.md): formato aberto de instruções para coding agents; `AGENTS.md` na raiz + `SCAFFOLD.md` inicializador. Fonte deste protocolo.
 - Decisões = **ADR Nygard** em `docs/adr/`, indexadas, **status no índice** (https://adr.github.io).
 - **Conventional Commits** (conventionalcommits.org); **SemVer** + `CHANGELOG` (Keep a Changelog). `.editorconfig`. kebab-case. `LICENSE` se público.
 - Refs entre docs de agente = `[[wikilink]]` (Obsidian; grafo = mapa mental); `README` usa links padrão; `history/` fora do grafo.

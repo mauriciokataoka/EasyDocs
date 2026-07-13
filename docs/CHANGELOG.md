@@ -13,6 +13,7 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 
 ### Added
 - **ADRs 0004/0005/0006** trazem as especificações do projeto Planner (EasyDocs): produto visualizador, arquitetura do núcleo compartilhado + plugin VSCode, e experiência de visualização (SemVer/cards/busca/pastas virtuais `decisions`/`Project`/`architecture`/`design`).
+- `seed/SCAFFOLD.md`: seção de convenções agora cita a spec **AGENTS.md** (https://agents.md), alinhada a ADR/Changelog/SemVer.
 
 ## [0.1.0] - 2026-07-13
 
