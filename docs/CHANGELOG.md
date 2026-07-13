@@ -9,6 +9,7 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 ### Added
 - **Integração do visualizador (ADR 0009):** código do projeto Planner copiado em `packages/vscode/` (extensão VSCode); monorepo com gerador na raiz + plugin. Versionamento **unificado** (produto combinado em `0.2.0`).
 - **ADR 0008 (proposed):** mapeamento ROADMAP ↔ SemVer por posição — cards arrastáveis reordenam e reenumeram a versão automaticamente; features órfãs recebem versão pela posição (especifica a regra subjacente à ADR 0006).
+- **Fix (viewer):** F5 agora builda via `preLaunchTask` (`tasks.json`) — `dist/` é gitignorado e o webview o lê em runtime, então sem build o editor quebrava ao abrir.
 - **`docs/adr/INDEX.md` criado** — faltava, embora referenciado por `AGENTS.md` e ADR 0001; indexa os ADRs 0001–0008.
 - **ROADMAP:** seção "Visualizador (herdado do Planner)" com as tarefas de implementação do plugin VSCode trazidas do Planner (writer roundtrip, órfãs por posição, busca por versão/treeview, arraste+auto-renumeração SemVer, build esbuild, custom editor, painel, testes, VSIX).
 - **PRD:** âncora do visualizador (problema de reordenar prioridades + não-objetivos: sem edição livre, sem multi-usuário, sem nuvem).

@@ -38,7 +38,7 @@ Tarefas de implementação do plugin VSCode. No Planner estavam parcialmente con
 - [x] Custom Editor para `ROADMAP.md`/`CHANGELOG.md`. *(feito no Planner; revalidar)*
 - [x] Painel EasyDocs na Activity Bar (TreeView). *(feito no Planner; revalidar)*
 - [x] Remover casca HTML/SPA (`src/web`). *(feito no Planner)*
-- [ ] Verificação manual no Extension Development Host (F5).
+- [x] Verificação manual no Extension Development Host (F5) — **corrigido**: `launch.json` agora tem `preLaunchTask: build`, e `.vscode/tasks.json` builda via `npm run build`. Causa raiz de "não funcionava": o webview lê `dist/webview.js`/`webview.css` em runtime, mas `dist/` é gitignorado e ausente sem build — F5 sem build queueava ao ler arquivos inexistentes.
 - [ ] Comando/menu de contexto (opcional).
 
 ### Testes e distribuição
