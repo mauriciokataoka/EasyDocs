@@ -8,6 +8,8 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 
 ### Changed
 - PRD/ARCHITECTURE: esclarecem que MinimalDocs é um **gerador de projetos** e `seed/` é a semente copiável (não executada no próprio repo).
+- **ADR 0001 ativa:** `PRD.md` vira âncora mínima (problema/público/não-objetivos/objetivo inicial); `ARCHITECTURE.md`/`DESIGN.md` tornam-se *views renderizadas* de ADRs (`architecture`/`design`). Aplicado em `AGENTS.md` (raiz+seed) e `seed/SCAFFOLD.md`.
+- Novos ADRs: 0002 (estrutura de artefatos) e 0003 (camadas de leitura/apresentação).
 
 ## [0.1.0] - 2026-07-13
 

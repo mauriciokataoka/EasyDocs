@@ -9,9 +9,8 @@
 ## Mapa (docs canônicas em `docs/`; raiz só `AGENTS`+`README`; não listar diretórios; arquivado = off-graph)
 | Arquivo | Quando ler |
 |---|---|
-| [[PRD]] | identidade, objetivo, produto, problema, solução |
-| [[ARCHITECTURE]] | mexer em estrutura |
-| [[DESIGN]] | mexer em UX/UI |
+| [[PRD]] | âncora mínima: problema, público, não-objetivos, objetivo inicial (não é decisão) |
+| (views) ARCHITECTURE/DESIGN | **renderizadas** a partir de ADRs `architecture`/`design` ativos — ver `docs/adr/INDEX.md` |
 | [[README]] | visão p/ humano |
 | [[ROADMAP]] | **sempre, p/ retomar** — afazeres/pendências |
 | `docs/adr/INDEX.md` | decisões e porquês — **sob demanda**; status no índice |

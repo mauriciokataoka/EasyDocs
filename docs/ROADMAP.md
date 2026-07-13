@@ -20,4 +20,4 @@ Afazeres/pendências do projeto (TODOs).
 - [ ] (I0 / ADR) Decidir estrutura de monorepo: gerador na raiz + extensão em `packages/vscode/`; precedência de `AGENTS.md` aninhado na extensão (spec agents.md).
 - [ ] (I0 / ADR) Decidir versionamento unificado: repo EasyDocs (CHANGELOG, hoje 0.1.0) vs `package.json` da extensão (0.2.0) — manter independentes ou unificar.
 - [ ] (I0 / ADR) Decidir mesclagem de histórico git: `git subtree add` de Planner em `packages/vscode/` (preserva histórico) vs `merge --allow-unrelated-histories`.
-- [ ] (ADR 0001, proposed) Decidir colapsar PRD/ARCHITECTURE/DESIGN em ADRs tagueados por domínio (views renderizadas). Aguarda aprovação do dono + mudança em AGENTS.md (I2).
+- [x] (ADR 0001, active) Colapsar PRD/ARCH/DESIGN em ADRs tagueados por domínio — piloto aplicado no repo (PRD âncora + ARCH/DESIGN views; AGENTS.md raiz+seed e seed/SCAFFOLD.md atualizados).

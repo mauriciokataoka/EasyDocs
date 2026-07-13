@@ -5,7 +5,9 @@
 | Nº | Título | Status |
 |----|--------|--------|
 | 0000 | Template de ADR (Nygard) | active |
-| 0001 | Colapsar PRD/ARCH/DESIGN em ADRs tagueados por domínio | proposed |
+| 0001 | Colapsar PRD/ARCH/DESIGN em ADRs tagueados por domínio | active |
+| 0002 | Estrutura de artefatos do repositório | active |
+| 0003 | Camadas de leitura e apresentação (Obsidian) | active |
 
 > Status: `proposed` (aberta, aguarda ratificação) · `active` (vigente) · `deprecated` / `superseded` (morta, ver `history/`).
 

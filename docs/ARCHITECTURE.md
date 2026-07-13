@@ -1,27 +1,7 @@
-Arquitetura técnica: componentes, dados, integrações. Otimizado p/ agente.
+> **VIEW RENDERIZADA — não editar à mão.** Gerada a partir dos ADRs `architecture` ativos (ver `docs/adr/INDEX.md`).
 
-# ARCHITECTURE — MinimalDocs
+# ARCHITECTURE (view)
 
-## Visão geral
-MinimalDocs não tem runtime. É um conjunto de arquivos estáticos que definem e operam um fluxo de documentação dirigido por agente.
+Esta view reflete as decisões de arquitetura vigentes. Conteúdo-fonte: `docs/adr/` (filtre por domínio `architecture`).
 
-## Componentes (artefatos)
-- **`AGENTS.md`** (raiz) — protocolo canônico do agente; fonte de verdade para comportamento.
-- **`SCAFFOLD.md`** (raiz, efêmero) — inicializador; cria a estrutura em `docs/` e se auto-apaga.
-- **`README.md`** (raiz) — entrada p/ humano; aponta para `docs/`.
-- **`seed/`** — o entregável do gerador: arquivos originais/inaalterados (`AGENTS.md` + `SCAFFOLD.md`) copiados para um projeto novo. **Não executar aqui**; só no destino.
-- **`docs/`** — docs canônicas: `PRD`, `ARCHITECTURE`, `DESIGN`, `ROADMAP`, `CHANGELOG`.
-- **`docs/adr/`** — ADRs Nygard indexados (`INDEX.md` + `NNNN-*.md`).
-- **`history/`** — arquivado off-graph (`INDEX.md`).
-- **`assets/`** — mídias/refs (sem doc).
-
-## Fluxo de dados
-1. Agente lê `AGENTS.md` → retoma via `[[ROADMAP]]` + `docs/adr/`.
-2. Se `SCAFFOLD.md` existir e a pasta só tiver os dois arquivos-base, executa-o 1× (cria `docs/`, commita, auto-apaga).
-3. Iterações registram decisões em ADRs e pendências no `ROADMAP`; `CHANGELOG` reflete releases SemVer.
-
-## Convenções (referências)
-- ADR: https://adr.github.io (formato Nygard).
-- Changelog: https://keepachangelog.com; SemVer: https://semver.org.
-- Commits: https://www.conventionalcommits.org.
-- Wikilinks (`[[...]]`) entre docs de agente (grafo Obsidian); `README` usa links padrão.
+- ADR 0002 — Estrutura de artefatos do repositório (MinimalDocs): pastas `AGENTS.md`, `SCAFFOLD.md`, `README.md`, `seed/`, `docs/`, `docs/adr/`, `history/`, `assets/`; fluxo agente→SCAFFOLD→ADR/ROADMAP→CHANGELOG; convenções ADR Nygard / Keep a Changelog / SemVer / Conventional Commits / wikilinks.

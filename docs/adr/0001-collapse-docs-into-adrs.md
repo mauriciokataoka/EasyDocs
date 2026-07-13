@@ -2,7 +2,7 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0001 — Colapsar PRD/ARCHITECTURE/DESIGN em ADRs tagueados por domínio
 
-- Status: proposed
+- Status: active
 
 ## Contexto
 Todo projeto do dono nasce como brainstorm/decision com o LLM (pair programming + modelagem). Hoje `docs/PRD.md`, `docs/ARCHITECTURE.md` e `docs/DESIGN.md` são narrativas separadas que o agente deve manter em sincronia com as decisões — mas os modelos nem sempre seguem, gerando drift. A hipótese: PRD/ARCHITECTURE/DESIGN são, na prática, **projeções (views)** das decisões ativas, não fontes primárias.
