@@ -11,6 +11,7 @@
 | 0004 | EasyDocs: visualizador estruturado de ROADMAP/CHANGELOG/ADRs | active |
 | 0005 | Arquitetura do visualizador (núcleo compartilhado + cascas) | active |
 | 0006 | Experiência de visualização (design do viewer) | active |
+| 0007 | Estilo das instruções: enxuto porém desambiguado (sem símbolos) | proposed |
 
 > Status: `proposed` (aberta, aguarda ratificação) · `active` (vigente) · `deprecated` / `superseded` (morta, ver `history/`).
 
