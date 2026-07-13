@@ -7,8 +7,8 @@ Afazeres/pendências do projeto (TODOs).
 - [x] Confirmar que o nome da pasta (`EasyDocs`) é o nome do projeto — registrado em [[PRD]]/[[README]].
 - [ ] Definir o destino do `push` (remote GitHub) — *pode adiar*.
 - [x] Detalhar o objetivo no [[PRD]] (template de docs orientadas a agente).
-- [x] Confirmar que **não é um app** → não criar `src/`.
-- [x] Confirmar que **não é software com runtime** → stack = estática (sem build).
+- [x] Confirmar que o **gerador** (`seed/` + docs) não é um app → sem `src/` na raiz; o plugin VSCode tem seu próprio `src/` em `packages/vscode/` (ADR 0005).
+- [x] Confirmar que o **gerador é estático** (sem build na raiz); o plugin VSCode tem runtime/esbuild próprios (ADR 0005).
 - [ ] Escrever o `README` em inglês? (hoje em pt-BR, alinhado às docs) — decidir idioma canônico.
 - [x] Validar `AGENTS.md` contra a especificação agents.md (https://agents.md) e versionar como `v0.1.0`.
 - [ ] Adicionar exemplo de ADR `proposed` real para exercitar o fluxo.
