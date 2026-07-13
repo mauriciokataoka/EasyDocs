@@ -12,7 +12,7 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 - Novos ADRs: 0002 (estrutura de artefatos) e 0003 (camadas de leitura/apresentação).
 
 ### Added
-- **ADRs 0004/0005/0006** trazem as especificações do projeto Planner (EasyDocs): produto visualizador, arquitetura do núcleo compartilhado + cascas VSCode/HTML, e experiência de visualização (SemVer/cards/busca/pastas virtuais `decisions`/`Project`/`architecture`/`design`).
+- **ADRs 0004/0005/0006** trazem as especificações do projeto Planner (EasyDocs): produto visualizador, arquitetura do núcleo compartilhado + plugin VSCode, e experiência de visualização (SemVer/cards/busca/pastas virtuais `decisions`/`Project`/`architecture`/`design`).
 
 ## [0.1.0] - 2026-07-13
 
