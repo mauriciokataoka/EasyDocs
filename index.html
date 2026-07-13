@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyDocs — documentação viva para agentes</title>
+  <meta name="description" content="EasyDocs gera um repositório de documentação mínimo e orientado a agentes de IA, com visualizador estruturado de ROADMAP, CHANGELOG e ADRs." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --muted: #5c5c5c;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --code-bg: #f5f5f5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 0.95rem; }
+    nav a:hover { color: var(--fg); }
+    .hero { padding: 72px 0 56px; text-align: center; }
+    .hero h1 { font-size: 2.6rem; margin: 0 0 12px; letter-spacing: -0.03em; }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 28px; }
+    .cta { display: inline-block; background: var(--accent); color: #fff; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    .cta:hover { opacity: 0.92; }
+    section { padding: 48px 0; border-top: 1px solid var(--border); }
+    section h2 { font-size: 1.6rem; margin: 0 0 24px; letter-spacing: -0.02em; }
+    .cmd {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 16px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95rem;
+    }
+    .cmd code { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .copy {
+      border: 1px solid var(--border); background: #fff; color: var(--fg);
+      border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 0.85rem; flex-shrink: 0; margin-left: 12px;
+    }
+    .copy:hover { border-color: var(--accent); color: var(--accent); }
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature { border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .feature h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    details { border: 1px solid var(--border); border-radius: 8px; padding: 0 16px; margin-bottom: 12px; }
+    details summary { cursor: pointer; padding: 14px 0; font-weight: 600; }
+    details p { margin: 0 0 14px; color: var(--muted); }
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: 0.9rem; text-align: center; }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">EasyDocs</div>
+      <nav>
+        <a href="#recursos">Recursos</a>
+        <a href="#inicio">Início rápido</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="wrap">
+        <h1>Documentação viva, sem atrito</h1>
+        <p>EasyDocs gera um repositório de documentação mínimo e agnóstico, feito para ser mantido por agentes de IA — e oferece um visualizador estruturado de ROADMAP, CHANGELOG e ADRs.</p>
+        <a class="cta" href="#inicio">Começar agora</a>
+      </div>
+    </div>
+
+    <section id="recursos">
+      <div class="wrap">
+        <h2>Recursos</h2>
+        <div class="features">
+          <div class="feature">
+            <h3>Scaffold mínimo</h3>
+            <p>Um <code>AGENTS.md</code> como protocolo e um <code>SCAFFOLD.md</code> como inicializador. Copie e execute.</p>
+          </div>
+          <div class="feature">
+            <h3>Agnóstico</h3>
+            <p>Sem framework nem build acoplado. Funciona em qualquer projeto.</p>
+          </div>
+          <div class="feature">
+            <h3>Orientado a agentes</h3>
+            <p>Contexto preservado entre sessões; decisões registradas como ADRs.</p>
+          </div>
+          <div class="feature">
+            <h3>Visualizador</h3>
+            <p>Navegue ROADMAP, CHANGELOG e ADRs em uma extensão VSCode.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inicio">
+      <div class="wrap">
+        <h2>Início rápido</h2>
+        <p style="color:var(--muted); margin-top:0;">Copie o comando abaixo e cole no seu terminal dentro de um projeto vazio:</p>
+        <div class="cmd">
+          <code id="cmd-text">npx easydocs init</code>
+          <button class="copy" id="copy-btn" type="button">Copiar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <h2>Perguntas frequentes</h2>
+        <details>
+          <summary>Preciso usar a extensão VSCode?</summary>
+          <p>Não. O gerador é independente do visualizador. O scaffold funciona sozinho em qualquer editor.</p>
+        </details>
+        <details>
+          <summary>Funciona com meu framework?</summary>
+          <p>Sim. EasyDocs não impõe build nem linguagem — é só documentação em arquivos de texto.</p>
+        </details>
+        <details>
+          <summary>Quem mantém a documentação?</summary>
+          <p>Agentes de IA, seguindo o protocolo em <code>AGENTS.md</code>. Você aprova as decisões.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">EasyDocs — documentação orientada a agentes.</div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("copy-btn");
+      var text = document.getElementById("cmd-text");
+      btn.addEventListener("click", function () {
+        var value = text.textContent.trim();
+        var done = function () {
+          var original = btn.textContent;
+          btn.textContent = "Copiado!";
+          setTimeout(function () { btn.textContent = original; }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(value).then(done, function () { fallback(value, done); });
+        } else {
+          fallback(value, done);
+        }
+      });
+      function fallback(value, done) {
+        var ta = document.createElement("textarea");
+        ta.value = value;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    })();
+  </script>
+</body>
+</html>

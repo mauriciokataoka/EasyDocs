@@ -1,0 +1,7 @@
+.DS_Store
+.obsidian/
+# fixture local de teste (doc de projeto externo)
+docs(example)/
+
+node_modules/
+dist/

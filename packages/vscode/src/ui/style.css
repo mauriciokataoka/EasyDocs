@@ -1,0 +1,64 @@
+:root {
+  --bg: var(--vscode-editor-background, #1e1e1e);
+  --panel: var(--vscode-sideBar-background, #252526);
+  --card: var(--vscode-editorWidget-background, #2d2d30);
+  --border: var(--vscode-widget-border, #3c3c3c);
+  --fg: var(--vscode-editor-foreground, #d4d4d4);
+  --muted: var(--vscode-descriptionForeground, #858585);
+  --accent: var(--vscode-focusBorder, #0e639c);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: var(--vscode-font-size, 13px) / 1.5 var(--vscode-font-family, -apple-system, "Segoe UI", sans-serif);
+  background: var(--bg);
+  color: var(--fg);
+}
+.app { padding: 8px 4px; }
+.toolbar { margin-bottom: 10px; }
+.search {
+  width: 100%;
+  padding: 6px 10px;
+  background: var(--vscode-input-background, var(--card));
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--vscode-input-foreground, var(--fg));
+}
+.doc-title { font-size: 1.3em; font-weight: 600; margin: 4px 0 12px; }
+.group { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 8px; overflow: hidden; }
+.group.orphans { border-color: #a1701f; }
+.group.adr { margin: 8px; }
+.group-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--panel);
+  cursor: pointer;
+  user-select: none;
+}
+.chevron { color: var(--muted); width: 12px; }
+.group-title { font-weight: 600; }
+.group-meta { color: var(--muted); font-size: 12px; }
+.group-count {
+  margin-left: auto;
+  background: var(--card);
+  color: var(--muted);
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+.group-body { padding: 8px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.card-head { display: flex; align-items: center; gap: 8px; }
+.badge { font-size: 12px; background: #333; border-radius: 4px; padding: 0 6px; }
+.card-title { font-weight: 600; }
+.card-group { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.card-body { color: var(--fg); white-space: pre-wrap; margin-top: 6px; font-size: 13px; }
+.empty { color: var(--muted); padding: 40px; text-align: center; }

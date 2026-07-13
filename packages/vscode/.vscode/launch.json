@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run EasyDocs Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "auto",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}"
+      ],
+      "extensionDevelopmentPath": "${workspaceFolder}"
+    }
+  ]
+}

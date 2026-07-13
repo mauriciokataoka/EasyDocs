@@ -4,7 +4,14 @@ Histórico de versões. Formato Keep a Changelog (keepachangelog.com); versionam
 
 Todas as versões significativas documentadas aqui. O formato segue [Keep a Changelog](https://keepachangelog.com) e o versionamento [SemVer](https://semver.org).
 
-## [Unreleased]
+## [0.2.0] - 2026-07-13
+
+### Added
+- **Integração do visualizador (ADR 0009):** código do projeto Planner copiado em `packages/vscode/` (extensão VSCode); monorepo com gerador na raiz + plugin. Versionamento **unificado** (produto combinado em `0.2.0`).
+- **ADR 0008 (proposed):** mapeamento ROADMAP ↔ SemVer por posição — cards arrastáveis reordenam e reenumeram a versão automaticamente; features órfãs recebem versão pela posição (especifica a regra subjacente à ADR 0006).
+- **`docs/adr/INDEX.md` criado** — faltava, embora referenciado por `AGENTS.md` e ADR 0001; indexa os ADRs 0001–0008.
+- **ROADMAP:** seção "Visualizador (herdado do Planner)" com as tarefas de implementação do plugin VSCode trazidas do Planner (writer roundtrip, órfãs por posição, busca por versão/treeview, arraste+auto-renumeração SemVer, build esbuild, custom editor, painel, testes, VSIX).
+- **PRD:** âncora do visualizador (problema de reordenar prioridades + não-objetivos: sem edição livre, sem multi-usuário, sem nuvem).
 
 ### Changed
 - PRD/ARCHITECTURE: esclarecem que EasyDocs é um **gerador de projetos** e `seed/` é a semente copiável (não executada no próprio repo).
