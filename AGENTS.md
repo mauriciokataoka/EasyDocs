@@ -10,7 +10,7 @@
 | Arquivo | Quando ler |
 |---|---|
 | [[PRD]] | âncora mínima: problema, público, não-objetivos, objetivo inicial (não é decisão) |
-| (views) ARCHITECTURE/DESIGN | **renderizadas** a partir de ADRs `architecture`/`design` ativos — ver `docs/adr/INDEX.md` |
+| (views) ARCHITECTURE/DESIGN | **virtuais** (plugin): pastas `architecture`/`design` montadas a partir de ADRs por domínio — ver `docs/adr/INDEX.md` |
 | [[README]] | visão p/ humano |
 | [[ROADMAP]] | **sempre, p/ retomar** — afazeres/pendências |
 | `docs/adr/INDEX.md` | decisões e porquês — **sob demanda**; status no índice |

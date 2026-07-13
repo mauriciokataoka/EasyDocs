@@ -3,7 +3,7 @@
 # PRD — MinimalDocs (âncora)
 
 ## Nome do projeto
-MinimalDocs (nome da pasta = nome do projeto).
+MinimalDocs (nome da pasta = nome do projeto). **Produto:** EasyDocs — gerador de documentação orientada a agente **+** visualizador estruturado (ADR 0004). Renomear a pasta para `EasyDocs` está pendente (ROADMAP).
 
 ## Problema
 Projetos nascem sem documentação estruturada; agentes de IA perdem contexto entre sessões e duplicam decisões. Templates pesados (geralmente acoplados a frameworks) afugentam quem quer só o essencial.

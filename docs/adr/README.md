@@ -8,6 +8,9 @@
 | 0001 | Colapsar PRD/ARCH/DESIGN em ADRs tagueados por domínio | active |
 | 0002 | Estrutura de artefatos do repositório | active |
 | 0003 | Camadas de leitura e apresentação (Obsidian) | active |
+| 0004 | EasyDocs: visualizador estruturado de ROADMAP/CHANGELOG/ADRs | active |
+| 0005 | Arquitetura do visualizador (núcleo compartilhado + cascas) | active |
+| 0006 | Experiência de visualização (design do viewer) | active |
 
 > Status: `proposed` (aberta, aguarda ratificação) · `active` (vigente) · `deprecated` / `superseded` (morta, ver `history/`).
 
