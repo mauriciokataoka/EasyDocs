@@ -1,6 +1,6 @@
 # AGENTS.md
 
-> Segue a convenção [agents.md](https://agents.md). **Retomada:** leia este arquivo → [[ROADMAP]] (o que fazer) + `docs/adr/` (porquês). Tudo relevante referenciado aqui; arquivado é off-graph.
+> Segue a convenção [agents.md](https://agents.md). **Retomada:** leia este arquivo → [[ROADMAP]] (o que fazer) + `docs/adr/` (porquês). Tudo relevante referenciado aqui; arquivado é off-graph. **Este projeto retoma sem handoff: todo o estado vive nas docs — um agente novo lê este arquivo e continua.**
 
 ## Início
 - Se `SCAFFOLD.md` existir nesta pasta (não procurar aninhado): execute-o **1×**. Senão: siga o método.

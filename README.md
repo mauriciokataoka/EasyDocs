@@ -1,6 +1,6 @@
 Visão geral p/ humano; aponta p/ as docs de agente.
 
-# MinimalDocs
+# EasyDocs
 
 Scaffold mínimo de documentação orientada a agente (IA). Fornece `AGENTS.md` e `SCAFFOLD.md` para iniciar qualquer projeto com docs canônicas, ADRs e versionamento — sem dependências.
 

@@ -1,6 +1,6 @@
 Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · Consequências*.
 
-# ADR 0002 — Estrutura de artefatos do repositório (MinimalDocs)
+# ADR 0002 — Estrutura de artefatos do repositório (EasyDocs)
 
 - Status: active
 - Domínio: architecture
