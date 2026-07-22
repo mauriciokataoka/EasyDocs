@@ -9,7 +9,7 @@ Afazeres/pendências do projeto (TODOs).
 - [x] Detalhar o objetivo no [[PRD]] (template de docs orientadas a agente).
 - [x] Confirmar que o **gerador** (`seed/` + docs) não é um app → sem `src/` na raiz; o plugin VSCode tem seu próprio `src/` em `packages/vscode/` (ADR 0005).
 - [x] Confirmar que o **gerador é estático** (sem build na raiz); o plugin VSCode tem runtime/esbuild próprios (ADR 0005).
-- [ ] Escrever o `README` em inglês? (hoje em pt-BR, alinhado às docs) — decidir idioma canônico.
+- [x] Idioma canônico: pt-BR (alinhado às docs atuais).
 - [x] Validar `AGENTS.md` contra a especificação agents.md (https://agents.md) e versionar como `v0.1.0`.
 - [ ] Adicionar exemplo de ADR `proposed` real para exercitar o fluxo.
 - [ ] (Opcional, I2) Agregar a `AGENTS.md` nota de "sem build/test/segredos" alinhada às seções recomendadas da spec agents.md (aguarda aprovação do dono).
@@ -22,7 +22,7 @@ Afazeres/pendências do projeto (TODOs).
 Tarefas de implementação do plugin VSCode. No Planner estavam parcialmente concluídas; aqui ficam pendentes até integração em `packages/vscode/` e validação em execução (ADR 0005: código não validado). Itens marcados `*(feito no Planner; revalidar)*` foram concluídos lá, mas precisam ser reconfirmados no repo unificado.
 
 ### Core (compartilhado)
-- [ ] Writer roundtrip (`.md` ← modelo) preservando formatação (ADR 0005).
+- [x] Writer roundtrip (`.md` ← modelo) preservando formatação (ADR 0010 — AST-based com remark/unified).
 - [ ] Atribuir versão a feature órfã pela posição (ordem) no doc (ADR 0006 / ADR 0008).
 
 ### UI compartilhada (webview)
@@ -30,7 +30,7 @@ Tarefas de implementação do plugin VSCode. No Planner estavam parcialmente con
 - [x] Features órfãs destacadas (grupo próprio). *(feito no Planner; revalidar)*
 - [ ] Busca por versão + treeview.
 - [ ] Render de doc único (painel/aba do VSCode).
-- [ ] **ROADMAP: cards arrastáveis + auto-renumeração de versão ao reordenar** (ADR 0006 / ADR 0008 — regra de mapeamento em aberto).
+- [ ] **ROADMAP: cards arrastáveis + auto-renumeração de versão ao reordenar** (ADR 0006 / ADR 0008 — algoritmo definido).
 
 ### Extensão VSCode
 - [x] Manifest + build esbuild (`dist/extension.js`, `dist/webview.js`, `dist/webview.css`). *(feito no Planner; revalidar)*
@@ -43,11 +43,12 @@ Tarefas de implementação do plugin VSCode. No Planner estavam parcialmente con
 
 ### Testes e distribuição
 - [x] Testes automatizados do core (fixture `docs(example)/`). *(feito no Planner; revalidar)*
-- [ ] Decidir se `docs(example)/` entra versionado como fixture ou fica local.
-- [ ] Empacotar/distribuir (VSIX/Marketplace).
+- [x] Fixture `docs(example)/` fica local (não entra versionado).
+- [x] Empacotar/distribuir (uso pessoal: VSIX manual via `vsce package`, sem Marketplace/CI-CD).
 
 - [x] (I0 / ADR 0009) Estrutura de monorepo: gerador na raiz + extensão em `packages/vscode/`; `AGENTS.md` aninhado na extensão tem precedência (spec agents.md).
 - [x] (I0 / ADR 0009) Versionamento **unificado**: um único número SemVer (produto combinado em `0.2.0`); `CHANGELOG` único funde generator (0.1.0) + viewer (0.2.0).
+- [x] (ADR 0011) Regra de versionamento unificado: viewer dita o bump (gerador estático, viewer ativo).
 - [x] (I0 / ADR 0009) Mesclagem de histórico: **cópia do código final** (sem `subtree`); histórico do Planner não preservado como branch.
 - [x] Implementar o visualizador: **reaproveitar** o código do Planner, copiado em `packages/vscode/` (ADR 0009). Validação em execução pendente nos itens abaixo.
 - [x] Renomear repo **MinimalDocs → EasyDocs** (pasta): produto já é EasyDocs (ADR 0004); ajustar nomes/refs em docs — concluído.

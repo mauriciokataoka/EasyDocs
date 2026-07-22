@@ -45,5 +45,17 @@ A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `do
 
 ## Comportamento / Operação
 - Mantenha o objetivo claro; se não estiver, pergunte. Uma pergunta é uma pergunta; confirme premissas com o dono quando necessário. Tarefas grandes DEVEM ser divididas em um plano.
-- Use git imediatamente (repo próprio). DEVE fazer push somente com aprovação. Commits são livres e seguem Conventional Commits.
+- Use git imediatamente (repo próprio). DEVE fazer push somente com aprovação. **Commits OBRIGATORIAMENTE em Conventional Commits** (formato: `type(scope): description`).
+  - **Types obrigatórios:** `feat` (feature), `fix` (bugfix), `docs` (documentação), `refactor` (refatoração), `test` (testes), `chore` (tarefas)
+  - **Scope opcional:** ex: `feat(viewer):`, `fix(core):`
+  - **Breaking change:** adicionar `!` após type/scope (ex: `feat!:`) ou footer `BREAKING CHANGE:`
+  - **Referência a ADR:** quando aplicável, incluir no footer (ex: `Refs: ADR-0008`)
 - Versão: SemVer. A versão corrente é a tag `vX.Y.Z`, espelhada no topo do `CHANGELOG.md`. Bump por commits (`fix`→patch, `feat`→minor, `!`/`BREAKING`→major); nasce em `0.1.0`. Release = mover `[Unreleased]` para `[X.Y.Z] - data` e criar a tag. Com código, o manifesto nativo (ex.: `package.json`) espelha a tag.
+- **Git tags**: usar formato `vX.Y.Z` (prefixo `v` + SemVer). Tags são annotated (com mensagem) e seguem o conteúdo do CHANGELOG. Ex: `git tag -a v0.2.0 -m "Release 0.2.0"`
+- **Tags no código**: comentários inline para rastreabilidade código↔docs. Formato: `// @TAG valor`.
+  - `@ADR-XXXX` - referência a ADR (ex: `// @ADR-0008`)
+  - `@PRD` - referência ao PRD (ex: `// @PRD objetivo-inicial`)
+  - `@ROADMAP` - referência ao ROADMAP (ex: `// @ROADMAP item-123`)
+  - `@since X.Y.Z` - desde quando existe (ex: `// @since 0.2.0`)
+  - `@deprecated X.Y.Z` - obsoleto desde (ex: `// @deprecated 0.3.0`)
+  - Toda entidade pública (classe, função, módulo) DEVE ter pelo menos uma referência a doc (@ADR, @PRD ou @ROADMAP).

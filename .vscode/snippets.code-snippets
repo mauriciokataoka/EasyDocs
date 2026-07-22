@@ -1,0 +1,27 @@
+{
+  "ADR Reference": {
+    "prefix": "@adr",
+    "description": "Tag de referência a ADR",
+    "body": "// @ADR-$1"
+  },
+  "PRD Reference": {
+    "prefix": "@prd",
+    "description": "Tag de referência ao PRD",
+    "body": "// @PRD $1"
+  },
+  "ROADMAP Reference": {
+    "prefix": "@roadmap",
+    "description": "Tag de referência ao ROADMAP",
+    "body": "// @ROADMAP $1"
+  },
+  "Since Version": {
+    "prefix": "@since",
+    "description": "Tag de versão desde quando existe",
+    "body": "// @since $1"
+  },
+  "Deprecated Version": {
+    "prefix": "@deprecated",
+    "description": "Tag de versão obsoleto",
+    "body": "// @deprecated $1"
+  }
+}

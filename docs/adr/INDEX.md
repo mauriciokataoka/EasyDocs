@@ -11,5 +11,7 @@
 | 0005 | Arquitetura do visualizador (núcleo compartilhado + cascas) | architecture | active |
 | 0006 | Experiência de visualização (design do viewer) | design | active |
 | 0007 | Estilo das instruções do agente: verboso, sem símbolos ambíguos | protocol | proposed |
-| 0008 | Mapeamento ROADMAP ↔ SemVer por posição (arraste reordena) | design | proposed |
+| 0008 | Mapeamento ROADMAP ↔ SemVer por posição (arraste reordena) | design | accepted |
 | 0009 | Integração do visualizador (Planner) no EasyDocs | architecture | accepted |
+| 0010 | Writer roundtrip com AST (preservação de formatação) | architecture | accepted |
+| 0011 | Versionamento unificado: viewer dita o bump | architecture | accepted |

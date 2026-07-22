@@ -14,6 +14,7 @@ Donos de projeto que querem documentação viva mantida por agentes, com baixo a
 ## Não-objetivos
 - Não acoplar o gerador `seed/` a framework ou ferramenta de build específica.
 - Não exigir que o projeto consumidor adote o plugin VSCode (o gerador é independente do visualizador).
+- Não permitir alteração do `AGENTS.md` nos projetos consumidores (o protocolo é estático; mudanças estruturais vêm do EasyDocs, não do projeto).
 
 ## Objetivo inicial (mínimo)
 Fornecer um scaffold de documentação mínimo e agnóstico, centrado em `AGENTS.md` (protocolo) + `SCAFFOLD.md` (inicializador), que qualquer projeto copie e execute.

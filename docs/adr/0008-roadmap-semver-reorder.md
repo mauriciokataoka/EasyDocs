@@ -2,19 +2,26 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0008 — Mapeamento ROADMAP ↔ SemVer por posição (arraste reordena)
 
-- Status: proposed
+- Status: accepted
 - Domínio: design
 
 ## Contexto
 A ADR 0006 define a experiência do visualizador: ROADMAP em **cards arrastáveis** onde reordenar recalcula a numeração de versão automaticamente, e **features sem versão (órfãs)** recebem versão pela posição/ordem no documento. A ADR 0005 prevê o write-back (`.md` ← modelo) que depende dessa regra. Mas a regra exata de mapeamento entre **ordem** e **SemVer** ainda não está definida — daí a pergunta recorrente "por que SemVer no ROADMAP".
 
-## Decisão (proposta — em aberto, aguarda ratificação)
-Estabelecer:
-- A **ordem** dos cards no ROADMAP define a numeração SemVer: reordenar por arraste = reenumerar automaticamente os itens afetados (e o write-back persiste no `.md`, ADR 0005).
-- **Features órfãs** (sem versão explícita) recebem a versão correspondente à sua **posição/ordem** no documento.
-- O gerador de numeração é **determinístico**, para que a renumeração seja reproduzível e o diff no git faça sentido.
+## Decisão
+Algoritmo de mapeamento ordem→SemVer:
 
-Pendente de ratificação: o algoritmo exato de projeção ordem→SemVer (ex.: major por seção vs minor por card; como tratar sub-itens).
+- **Regra de major/minor**: usuário arrasta o card para outra seção major → decide o major. Se mantiver sob o mesmo major → só altera o minor.
+- **Tratamento de subitens**: opção híbrida — subitens são permitidos (hierarquia preservada), mas apenas itens de nível superior têm versão SemVer. Subitens não têm versão própria (são detalhes de implementação do item pai) e podem ser reordenados sem afetar o versionamento.
+- **Algoritmo determinístico**:
+  1. ROADMAP é uma lista de seções major (v0.1, v0.2, v0.3...)
+  2. Cada seção major contém cards minor ordenados (v0.2.1, v0.2.2, v0.2.3...)
+  3. Cards podem ter subitens (sem versão)
+  4. Ao arrastar:
+     - Entre seções major → recalcula major + minor do card
+     - Dentro da mesma seção → recalcula só minor do card
+  5. Write-back persiste a nova numeração no `.md` (ADR 0005)
+- **Features órfãs** (sem versão explícita) recebem a versão correspondente à sua **posição/ordem** no documento.
 
 ## Consequências
 - O ROADMAP deixa de ser só uma lista e vira um quadro visual editável por arraste, com versionamento sempre consistente.
