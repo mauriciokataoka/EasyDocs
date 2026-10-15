@@ -2,7 +2,7 @@
   "name": "easydocs",
   "private": true,
   "scripts": {
-    "check": "node seed/scripts/check.mjs --ignore seed && node --test seed/scripts/release.test.mjs && npm test --prefix packages/vscode",
+    "check": "node seed/scripts/check.mjs --ignore seed && node --test seed/scripts/release.test.mjs seed/scripts/check.test.mjs && npm test --prefix packages/vscode",
     "hooks": "git config core.hooksPath .githooks",
     "release": "node seed/scripts/release.mjs"
   }

@@ -7,6 +7,7 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 ## [Unreleased]
 
 ### Fixed
+- **Conformância (R-007, 1ª rodada, 2026-10-15):** `SCAFFOLD` funciona só com `AGENTS.md`+`SCAFFOLD.md` (scripts opcionais, R-006 semeado); `AGENTS.md` esclarece domínios de ADR, que pastas de código não são I0, quando o revisor pode ser dispensado e o tipo de commit de merge; `check` aceita INDEX de ADR com link; docs não devem linkar `SCAFFOLD.md`.
 - Nota: o release `0.3.1` deveria ter sido `0.4.0` (bug do `release.mjs`, corrigido em `0.3.2`, que só olhava o commit mais recente). Tags publicadas não são reescritas; a próxima `feat` segue normalmente.
 
 ## [0.3.2] - 2026-10-15

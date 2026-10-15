@@ -69,7 +69,7 @@ for (const f of files) {
 const adrDir = path.join(root, "docs/adr");
 if (fs.existsSync(path.join(adrDir, "INDEX.md"))) {
   const index = fs.readFileSync(path.join(adrDir, "INDEX.md"), "utf8");
-  const rows = new Map([...index.matchAll(/^\|\s*(\d{4})\s*\|.*\|\s*([a-z]+)\s*\|\s*$/gm)].map((m) => [m[1], m[2]]));
+  const rows = new Map([...index.matchAll(/^\|\s*\[?(?:ADR-)?(\d{4})\]?(?:\([^)]*\))?\s*\|.*\|\s*([a-z]+)\s*\|\s*$/gm)].map((m) => [m[1], m[2]]));
   const adrs = fs.readdirSync(adrDir).filter((n) => /^\d{4}-.+\.md$/.test(n) && !n.startsWith("0000-"));
   for (const n of adrs) {
     const f = path.join(adrDir, n);
