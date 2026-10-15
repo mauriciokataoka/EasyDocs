@@ -6,6 +6,9 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 
 ## [Unreleased]
 
+### Fixed
+- Nota: o release `0.3.1` deveria ter sido `0.4.0` (bug do `release.mjs`, corrigido em `0.3.2`, que só olhava o commit mais recente). Tags publicadas não são reescritas; a próxima `feat` segue normalmente.
+
 ## [0.3.2] - 2026-10-15
 
 ## [0.3.1] - 2026-10-15
