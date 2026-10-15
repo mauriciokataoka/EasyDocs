@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @ADR-0015
 // Release automático SemVer (ADR 0015). Sem dependências; Node >= 18.
 // Uso: node scripts/release.mjs [--bump major|minor|patch] [--no-push]
 // Calcula o bump pelos Conventional Commits desde a última tag vX.Y.Z, move [Unreleased]

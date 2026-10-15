@@ -31,6 +31,8 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 - **Status de ADR padronizado** (`proposed | accepted | superseded | deprecated`; `active` abolido); modelo de ADR ganha `Alternativas`.
 
 ### Added
+- **`scripts/views.mjs`:** gera `docs/ARCHITECTURE.md` e `docs/DESIGN.md` a partir das ADRs aceitas (ADR 0018); o `check` reprova view desatualizada.
+- **`scripts/tags.mjs`:** o `check` valida tags `@ADR/@PRD/@ROADMAP` e a existência da referência (ADR 0012, agora `accepted`; `.taglintrc`).
 - **Release automático** (`seed/scripts/release.mjs`, `npm run release`): bump SemVer pelos Conventional Commits, `[Unreleased]`→versão, espelho de manifestos, commit `chore(release)`, tag annotated e push, sem aprovação do dono (ADR 0015, emendada).
 - `docs/field-notes/` (evidências datadas e imutáveis).
 - `check` local: `seed/scripts/check.mjs` (links, âncoras, wikilinks, ADRs × INDEX, IDs únicos, versão × CHANGELOG), `npm run check`, hook `.githooks/pre-push` (`npm run hooks`). Política de CI mínima/opt-in (ADR 0015); nenhum workflow criado.

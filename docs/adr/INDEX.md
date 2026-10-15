@@ -15,7 +15,7 @@
 | 0009 | Integração do visualizador (Planner) no EasyDocs | architecture | accepted |
 | 0010 | Writer roundtrip com AST (preservação de formatação) | architecture | accepted |
 | 0011 | Versionamento unificado: viewer dita o bump | architecture | superseded |
-| 0012 | Validação automática de tags de rastreabilidade | architecture | proposed |
+| 0012 | Validação automática de tags de rastreabilidade | architecture | accepted |
 | 0013 | Links Markdown relativos e referências por ID (fim dos wikilinks) | design | accepted |
 | 0014 | ROADMAP só aberto, IDs permanentes, critérios de pronto e evidência | protocol | accepted |
 | 0015 | Verificação local-first, política de CI e fonte única de versão | protocol | accepted |

@@ -11,7 +11,7 @@
 | Arquivo | Quando ler |
 |---|---|
 | [PRD](docs/PRD.md) | âncora mínima: problema, público, não-objetivos, objetivo inicial (não é decisão) |
-| (views) ARCHITECTURE/DESIGN | **virtuais** (plugin): montadas a partir das ADRs por domínio — ver [índice de ADRs](docs/adr/INDEX.md) |
+| [ARCHITECTURE](docs/ARCHITECTURE.md) · [DESIGN](docs/DESIGN.md) | **gerados** por `scripts/views.mjs` a partir das ADRs aceitas dos domínios `architecture`/`design`; **não editar** — ver [índice de ADRs](docs/adr/INDEX.md) |
 | [README](README.md) | visão p/ humano |
 | [ROADMAP](docs/ROADMAP.md) | **sempre, p/ retomar** — só trabalho aberto |
 | [ADRs](docs/adr/INDEX.md) | decisões e porquês — **sob demanda**; status no índice |
@@ -33,7 +33,7 @@
 
 ### ADRs (ADR 0016)
 - Decisão significativa → `docs/adr/NNNN-titulo.md` (modelo [0000](docs/adr/0000-template.md): Status · Domínio · Contexto · Decisão · **Alternativas** · Consequências), indexada em [INDEX](docs/adr/INDEX.md).
-- Status: `proposed` (sugestão; **não orienta implementação importante sem aprovação**) · `accepted` (vigente) · `superseded` (aponta a substituta) · `deprecated`. Nunca apagar ADR. **Domínios:** `product` · `architecture` · `design` · `protocol` (regras de trabalho/documentação); outro domínio = I0.
+- Status: `proposed` (sugestão; **não orienta implementação importante sem aprovação**) · `accepted` (vigente) · `superseded` (aponta a substituta) · `deprecated`. Nunca apagar ADR. **Ao criar/alterar uma ADR ou seu status, rode `node scripts/views.mjs`** (o `check` reprova view desatualizada). **Domínios:** `product` · `architecture` · `design` · `protocol` (regras de trabalho/documentação); outro domínio = I0.
 
 ### ROADMAP (ADR 0014)
 - **Só trabalho aberto.** Seções `## vX.Y.Z` (a **posição** do card gera a versão — ADR 0008). Item = `- **R-NNN — Título** · Estado: <estado>` + linhas indentadas `**Objetivo:**`, `**Escopo:**`, `**Validação:**` (obrigatórios) e, quando couber, `**Fora de escopo:**`, `**Dependências:**`, `**Riscos:**`, `**Critérios de pronto:**`. **Escreva o afazer de forma verbosa e sem lacunas:** quem registra deve especificar o máximo possível (contexto, motivo, critérios, exemplos) p/ o próximo agente **não precisar supor**. Ele pode discordar, criticar e contra-argumentar, mas não deve ter dúvida sobre o que foi pedido. O ROADMAP guarda só afazeres, então detalhar não o incha.
@@ -61,4 +61,4 @@
   - **Types:** `feat`, `fix`, `docs`, `refactor`, `test`, `chore`. **Scope** opcional (`feat(viewer):`). **Breaking:** `!` após type/scope ou footer `BREAKING CHANGE:`. **ADR:** footer `Refs: ADR-0008`.
 - **Verificação (ADR 0015):** comando único do projeto = `npm run check` (= `node seed/scripts/check.mjs --ignore seed` + testes do viewer; em projetos gerados o script fica em `scripts/check.mjs`). Hook `pre-push` em `.githooks/` (ativar: `npm run hooks`). **Sem GitHub Actions por padrão** (cota gratuita limitada); CI só se justificada e **mínima**: `pull_request`+`main`, só `ubuntu-latest`, `cancel-in-progress`, `timeout-minutes`, `paths-ignore` de docs, `workflow_dispatch`; macOS/Windows só manual.
 - **Versão automática** ([SemVer](https://semver.org/)): corrente = **tag `vX.Y.Z`**, espelhada no topo do `CHANGELOG` ([Keep a Changelog](https://keepachangelog.com)); nasce em `0.1.0`. Ao concluir uma unidade de trabalho com commits `feat`/`fix`/`!`, **o agente roda `npm run release`, sem pedir aprovação**: o script calcula o bump pelos commits desde a última tag (`fix`→patch, `feat`→minor, `!`/`BREAKING`→major; só `docs`/`chore`/`test`/`refactor` = sem release), move `[Unreleased]`→`[X.Y.Z] - data`, espelha os manifestos (`package.json`…), commita `chore(release)`, cria a tag **annotated** `vX.Y.Z` e dá push (branch + tag). O `check` valida o espelhamento.
-- **Tags no código**: comentários `// @TAG valor` p/ rastreabilidade código↔docs: `@ADR-XXXX`, `@PRD`, `@ROADMAP` (ex.: `// @ROADMAP R-004`), `@since X.Y.Z`, `@deprecated X.Y.Z`. Toda entidade pública (classe, função, módulo) DEVE ter ao menos uma referência a doc (@ADR, @PRD ou @ROADMAP). Validação automática: ADR 0012 (`proposed`).
+- **Tags no código**: comentários `// @TAG valor` p/ rastreabilidade código↔docs: `@ADR-XXXX`, `@PRD`, `@ROADMAP` (ex.: `// @ROADMAP R-004`), `@since X.Y.Z`, `@deprecated X.Y.Z`. Toda entidade pública (classe, função, módulo) DEVE ter ao menos uma referência a doc (@ADR, @PRD ou @ROADMAP). O `check` valida (`scripts/tags.mjs`, ADR 0012): uma tag nas 15 primeiras linhas do arquivo cobre o módulo; senão, tag acima da entidade; a referência deve existir. Escopo padrão `src/` (`.taglintrc`).

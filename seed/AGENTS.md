@@ -23,7 +23,7 @@ A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `do
 | Documento | Quando ler |
 |---|---|
 | `docs/PRD.md` | Âncora mínima: problema, público, não-objetivos, objetivo inicial. O que não é decisão. |
-| ARCHITECTURE e DESIGN | Views virtuais geradas pelo plugin a partir dos ADRs (domínios `architecture` e `design`). Não são arquivos e não se edita. |
+| `docs/ARCHITECTURE.md` e `docs/DESIGN.md` | Estado atual de arquitetura e de design. GERADOS por `scripts/views.mjs` a partir dos ADRs aceitos dos domínios `architecture` e `design`; NÃO edite. |
 | `README.md` | Visão para humano. |
 | `docs/ROADMAP.md` | Sempre, para retomar: somente trabalho aberto. |
 | `docs/adr/INDEX.md` | Decisões (ADRs) e seus status. Leitura sob demanda. |
@@ -48,7 +48,7 @@ A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `do
 
 ### ADRs
 - Cada decisão significativa vira `docs/adr/NNNN-titulo.md` a partir de `docs/adr/0000-template.md` (Status, Domínio, Contexto, Decisão, Alternativas, Consequências) e é indexada em `docs/adr/INDEX.md`.
-- Status permitidos: `proposed` (sugestão; NÃO orienta implementação importante sem aprovação), `accepted` (vigente), `superseded` (substituída; aponta a substituta) e `deprecated`. Nunca apague uma ADR. Domínios permitidos: `product`, `architecture`, `design` e `protocol` (regras de trabalho e documentação); outro domínio conta como I0.
+- Status permitidos: `proposed` (sugestão; NÃO orienta implementação importante sem aprovação), `accepted` (vigente), `superseded` (substituída; aponta a substituta) e `deprecated`. Nunca apague uma ADR. Ao criar ou alterar uma ADR ou seu status, rode `node scripts/views.mjs`; o `check` reprova view desatualizada. Domínios permitidos: `product`, `architecture`, `design` e `protocol` (regras de trabalho e documentação); outro domínio conta como I0.
 
 ### ROADMAP
 - Contém SOMENTE trabalho aberto, em seções `## vX.Y.Z`. A posição do item na lista gera a versão; o identificador `R-NNN` é a identidade e nunca muda.
@@ -87,4 +87,4 @@ A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `do
   - `@ROADMAP` - referência ao ROADMAP (ex: `// @ROADMAP R-004`)
   - `@since X.Y.Z` - desde quando existe (ex: `// @since 0.2.0`)
   - `@deprecated X.Y.Z` - obsoleto desde (ex: `// @deprecated 0.3.0`)
-  - Toda entidade pública (classe, função, módulo) DEVE ter pelo menos uma referência a doc (@ADR, @PRD ou @ROADMAP).
+  - Toda entidade pública (classe, função, módulo) DEVE ter pelo menos uma referência a doc (@ADR, @PRD ou @ROADMAP). O `check` valida isso (`scripts/tags.mjs`): uma tag nas 15 primeiras linhas do arquivo cobre o módulo inteiro; senão, coloque a tag no comentário logo acima da entidade; a referência deve existir (`@ADR-0003` exige o arquivo da ADR; `@ROADMAP R-004` exige o item). Por padrão só `src/` é verificado (ajuste em `.taglintrc`).

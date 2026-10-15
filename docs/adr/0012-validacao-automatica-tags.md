@@ -2,7 +2,7 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0012 — Validação automática de tags de rastreabilidade
 
-- Status: proposed
+- Status: accepted
 - Domínio: architecture
 
 ## Contexto
@@ -19,6 +19,13 @@ Criar um linter/script que valida se toda entidade pública tem pelo menos uma t
 Alternativas rejeitadas:
 - **Validação manual**: frágil e inconsistente
 - **Linter específico de linguagem** (ex: ESLint plugin): não cobre todas as linguagens
+
+## Emenda de 2026-10-15 (aceita pelo dono; implementada em `seed/scripts/tags.mjs`)
+- Roda dentro do **`check`** (que o hook `pre-push` já executa), não como pre-commit separado.
+- Escopo padrão: `src/`; `.taglintrc` (JSON) ajusta `include`/`exclude`. Arquivos de teste ficam de fora.
+- Entidades públicas reconhecidas: `export` (JS/TS), `def`/`class` no nível do módulo (Python), identificadores maiúsculos (Go), `pub` (Rust).
+- **Um `@ADR-NNNN`, `@PRD` ou `@ROADMAP R-NNN` nas 15 primeiras linhas do arquivo cobre o módulo e suas entidades**; senão, a tag vai no comentário logo acima da entidade (Python: ou no docstring logo abaixo). Escolha pragmática do dono: satisfatório para os agentes que ele usa, sem tentar prever todo agente/situação.
+- Valida também que a referência **existe**: `@ADR-NNNN` ⇒ arquivo em `docs/adr/`; `@ROADMAP R-NNN` ⇒ item no ROADMAP ou em `docs/history/roadmap/`.
 
 ## Consequências
 - Regra de rastreabilidade é enforceável automaticamente

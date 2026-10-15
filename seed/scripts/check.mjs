@@ -1,9 +1,11 @@
 #!/usr/bin/env node
+// @ADR-0015
 // Verificação genérica das docs (ADR 0015). Sem dependências; Node >= 18.
 // Uso: node scripts/check.mjs [--ignore dir1,dir2]   (executar na raiz do projeto)
 import fs from "node:fs";
 import path from "node:path";
-import { execSync } from "node:child_process";
+import { execSync, spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
 const root = process.cwd();
 const ignoreArg = process.argv.indexOf("--ignore");
@@ -115,6 +117,20 @@ if (top) {
       warns.push(`tag v${top} não existe (criar no release: git tag -a v${top} -m "Release ${top}")`);
     }
   } catch { /* sem git: ignora */ }
+}
+
+// 5. Views geradas (ARCHITECTURE/DESIGN) em dia com as ADRs (ADR 0018)
+const views = fileURLToPath(new URL("views.mjs", import.meta.url));
+if (fs.existsSync(views) && fs.existsSync(path.join(root, "docs/adr"))) {
+  const r = spawnSync(process.execPath, [views, "--check"], { cwd: root, encoding: "utf8" });
+  if (r.error || r.status !== 0) fail(path.join(root, "docs"), (r.error?.message ?? r.stderr).trim().split("\n").join("; "));
+}
+
+// 6. Rastreabilidade código↔docs (ADR 0012)
+const tags = fileURLToPath(new URL("tags.mjs", import.meta.url));
+if (fs.existsSync(tags)) {
+  const r = spawnSync(process.execPath, [tags], { cwd: root, encoding: "utf8" });
+  if (r.error || r.status !== 0) for (const l of (r.error?.message ?? r.stderr).trim().split("\n")) fail(root, l);
 }
 
 for (const w of warns) console.warn(`aviso: ${w}`);

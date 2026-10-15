@@ -11,6 +11,7 @@ const run = (index) => {
   fs.mkdirSync(path.join(dir, "docs/adr"), { recursive: true });
   fs.writeFileSync(path.join(dir, "docs/adr/0001-x.md"), "# ADR\n\n- Status: accepted\n");
   fs.writeFileSync(path.join(dir, "docs/adr/INDEX.md"), index);
+  spawnSync("node", [new URL("views.mjs", import.meta.url).pathname], { cwd: dir }); // views em dia
   const r = spawnSync("node", [new URL("check.mjs", import.meta.url).pathname], { cwd: dir });
   fs.rmSync(dir, { recursive: true, force: true });
   return r.status;
