@@ -26,7 +26,7 @@ const [maj, min, pat] = (tag.slice(1) || "0.0.0").split(".").map(Number);
 
 let bump = arg("--bump");
 if (!bump) {
-  const log = git("log", tag ? `${tag}..HEAD` : "HEAD", "--format=%s%n%b%x00").split("\0").filter((c) => c.trim());
+  const log = git("log", tag ? `${tag}..HEAD` : "HEAD", "--format=%s%n%b%x00").split("\0").map((c) => c.trim()).filter(Boolean);
   for (const c of log) {
     const m = /^(\w+)(\([^)]*\))?(!)?:/.exec(c);
     if (!m || /^chore\(release\)/.test(c)) continue;
