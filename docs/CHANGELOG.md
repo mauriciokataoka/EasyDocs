@@ -6,6 +6,8 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-15
+
 ## [0.3.3] - 2026-10-15
 
 ### Fixed
