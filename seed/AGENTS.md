@@ -54,7 +54,7 @@ A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `do
 - Contém SOMENTE trabalho aberto, em seções `## vX.Y.Z`. A posição do item na lista gera a versão; o identificador `R-NNN` é a identidade e nunca muda.
 - Formato do item: `- **R-NNN — Título** · Estado: <estado>`, seguido de linhas indentadas `**Objetivo:**`, `**Escopo:**` e `**Validação:**` (obrigatórias) e, quando couber, `**Fora de escopo:**`, `**Dependências:**`, `**Riscos:**` e `**Critérios de pronto:**`. Escreva o afazer de forma verbosa e sem lacunas: quem o registra DEVE especificar o máximo possível (contexto, motivo, critérios, exemplos) para que o próximo agente não precise supor nada. O próximo agente pode discordar, criticar e contra-argumentar, mas não deve ficar com dúvida sobre o que foi pedido. Como o ROADMAP guarda só afazeres, detalhar não o incha.
 - Antes de criar um identificador, consulte o ROADMAP e `docs/history/roadmap/INDEX.md`. Nunca reutilize um número, nem depois de concluir ou cancelar o item.
-- Estados: planejado, em implementação, aguardando validação, pronto para revisão, concluído, cancelado, substituído. Cancelado e substituído levam o motivo e o link da decisão que os explica.
+- Estados: planejado, em implementação, aguardando validação, pronto para revisão, concluído, congelado (adiado por decisão do dono, com motivo; fica na seção `## Congelado`), cancelado, substituído. Cancelado e substituído levam o motivo e o link da decisão que os explica.
 - O ROADMAP não é diário. A evidência detalhada vai para `docs/field-notes/` (arquivos `AAAA-MM-DD-assunto.md`, imutáveis, indexados em `INDEX.md`); o item apenas aponta para ela e guarda o estado.
 - Uma decisão que sobrevive à tarefa DEVE virar ADR; o item continua sendo o registro da execução.
 
@@ -71,6 +71,8 @@ A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `do
 
 ## Comportamento / Operação
 - Mantenha o objetivo claro; se não estiver, pergunte. Uma pergunta é uma pergunta; confirme premissas com o dono quando necessário. Tarefas grandes DEVEM ser divididas em um plano.
+- **Branches:** docs vão direto na `main`; código SEMPRE em branch (`type/descricao`, ex.: `feat/busca`; mudança mista de código e docs conta como código). A branch entra na `main` (sem PR obrigatório) somente após o `check`, a demonstração e a revisão independente; apague a branch depois. O release só roda na `main`.
+- **Segredos:** NUNCA commite chaves, tokens, senhas, `.env` ou credenciais (nem em comentários, docs ou exemplos); use variáveis de ambiente e `.gitignore`.
 - Use git imediatamente (repo próprio). O push é automático, sem pedir aprovação; NUNCA use `--force` nem reescreva histórico já publicado. **Commits OBRIGATORIAMENTE em Conventional Commits** (formato: `type(scope): description`).
   - **Types obrigatórios:** `feat` (feature), `fix` (bugfix), `docs` (documentação), `refactor` (refatoração), `test` (testes), `chore` (tarefas)
   - **Scope opcional:** ex: `feat(viewer):`, `fix(core):`

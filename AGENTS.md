@@ -38,7 +38,7 @@
 ### ROADMAP (ADR 0014)
 - **Só trabalho aberto.** Seções `## vX.Y.Z` (a **posição** do card gera a versão — ADR 0008). Item = `- **R-NNN — Título** · Estado: <estado>` + linhas indentadas `**Objetivo:**`, `**Escopo:**`, `**Validação:**` (obrigatórios) e, quando couber, `**Fora de escopo:**`, `**Dependências:**`, `**Riscos:**`, `**Critérios de pronto:**`. **Escreva o afazer de forma verbosa e sem lacunas:** quem registra deve especificar o máximo possível (contexto, motivo, critérios, exemplos) p/ o próximo agente **não precisar supor**. Ele pode discordar, criticar e contra-argumentar, mas não deve ter dúvida sobre o que foi pedido. O ROADMAP guarda só afazeres, então detalhar não o incha.
 - **ID `R-NNN` permanente, nunca reutilizado** (nem após concluir). Antes de criar, consulte o ROADMAP e [docs/history/roadmap/INDEX](docs/history/roadmap/INDEX.md).
-- **Estados:** planejado · em implementação · aguardando validação · pronto para revisão · concluído · cancelado · substituído (cancelado/substituído com motivo e link da decisão).
+- **Estados:** planejado · em implementação · aguardando validação · pronto para revisão · concluído · congelado (adiado por decisão do dono, com motivo; fica na seção `## Congelado`) · cancelado · substituído (cancelado/substituído com motivo e link da decisão).
 - **Não é diário:** evidência vai p/ `docs/field-notes/` (`AAAA-MM-DD-assunto.md`, imutável, indexada); o item só linka e guarda o estado.
 - **Decisão que sobrevive à tarefa → ADR**; o item continua sendo o registro da execução.
 
@@ -55,6 +55,8 @@
 
 ## Comportamento / Operação
 - Objetivo claro (senão pergunte); pergunta é pergunta; "né?/não?" confirma premissa; tarefa grande→plano; **doc = fonte de verdade**.
+- **Branches:** **docs vão direto na `main`; código SEMPRE em branch** (`type/descricao`, ex.: `feat/busca`; mudança mista código+docs = branch). A branch entra na `main` (sem PR obrigatório) só após `check` + demonstração + revisão independente; apague-a depois. `npm run release` só roda na `main`.
+- **Segredos:** nunca commitar chaves, tokens, senhas, `.env` ou credenciais (nem em comentários, docs ou exemplos); use variáveis de ambiente e `.gitignore`.
 - Git imediato (repo próprio); **push automático, sem pedir aprovação** (nunca `--force` nem reescrever histórico já publicado); **commits obrigatoriamente em Conventional Commits** (`type(scope): description`).
   - **Types:** `feat`, `fix`, `docs`, `refactor`, `test`, `chore`. **Scope** opcional (`feat(viewer):`). **Breaking:** `!` após type/scope ou footer `BREAKING CHANGE:`. **ADR:** footer `Refs: ADR-0008`.
 - **Verificação (ADR 0015):** comando único do projeto = `npm run check` (= `node seed/scripts/check.mjs --ignore seed` + testes do viewer; em projetos gerados o script fica em `scripts/check.mjs`). Hook `pre-push` em `.githooks/` (ativar: `npm run hooks`). **Sem GitHub Actions por padrão** (cota gratuita limitada); CI só se justificada e **mínima**: `pull_request`+`main`, só `ubuntu-latest`, `cancel-in-progress`, `timeout-minutes`, `paths-ignore` de docs, `workflow_dispatch`; macOS/Windows só manual.

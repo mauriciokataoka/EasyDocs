@@ -2,7 +2,7 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0011 — Versionamento unificado: viewer dita o bump
 
-- Status: accepted
+- Status: superseded (pela [ADR 0015](0015-verificacao-local-first-ci-versao.md): versão automática pelos commits; viewer congelado, [ADR 0017](0017-congelar-viewer.md))
 - Domínio: architecture
 
 ## Contexto

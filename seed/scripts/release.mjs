@@ -12,6 +12,8 @@ const arg = (n) => { const i = process.argv.indexOf(n); return i > 0 ? process.a
 const git = (...a) => execFileSync("git", a, { cwd: root, encoding: "utf8" }).trim();
 const die = (m) => { console.error(`✘ release: ${m}`); process.exit(1); };
 
+const branch = git("branch", "--show-current");
+if (!["main", "master"].includes(branch)) die(`rode na main (branch atual: ${branch}) — código entra na main antes do release.`);
 if (git("status", "--porcelain")) die("working tree suja — commite antes (o release só usa commits).");
 
 const pkg = path.join(root, "package.json");
@@ -34,7 +36,7 @@ if (!bump) {
   }
 }
 if (!bump) { console.log("sem release: nenhum feat/fix/breaking desde a última tag."); process.exit(0); }
-const next = bump === "major" ? `${maj + 1}.0.0` : bump === "minor" ? `${maj}.${min + 1}.0` : `${maj}.${min}.${pat + 1}`;
+const next = !tag ? "0.1.0" : bump === "major" ? `${maj + 1}.0.0` : bump === "minor" ? `${maj}.${min + 1}.0` : `${maj}.${min}.${pat + 1}`;
 
 const cl = path.join(root, "docs/CHANGELOG.md");
 const text = fs.readFileSync(cl, "utf8");

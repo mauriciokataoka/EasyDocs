@@ -14,9 +14,10 @@
 | 0008 | Mapeamento ROADMAP ↔ SemVer por posição (arraste reordena) | design | accepted |
 | 0009 | Integração do visualizador (Planner) no EasyDocs | architecture | accepted |
 | 0010 | Writer roundtrip com AST (preservação de formatação) | architecture | accepted |
-| 0011 | Versionamento unificado: viewer dita o bump | architecture | accepted |
+| 0011 | Versionamento unificado: viewer dita o bump | architecture | superseded |
 | 0012 | Validação automática de tags de rastreabilidade | architecture | proposed |
 | 0013 | Links Markdown relativos e referências por ID (fim dos wikilinks) | design | accepted |
 | 0014 | ROADMAP só aberto, IDs permanentes, critérios de pronto e evidência | protocol | accepted |
 | 0015 | Verificação local-first, política de CI e fonte única de versão | protocol | accepted |
 | 0016 | `AGENTS.md` como fonte normativa única, `field-notes/` e status de ADR | protocol | accepted |
+| 0017 | Congelar o visualizador (packages/vscode) | product | accepted |

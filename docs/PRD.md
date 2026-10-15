@@ -19,7 +19,7 @@ Donos de projeto que querem documentação viva mantida por agentes, com baixo a
 ## Objetivo inicial (mínimo)
 Fornecer um scaffold de documentação mínimo e agnóstico, centrado em `AGENTS.md` (protocolo) + `SCAFFOLD.md` (inicializador), que qualquer projeto copie e execute.
 
-## Visualizador (âncora do produto — ADRs 0004/0006)
+## Visualizador (âncora do produto — ADRs 0004/0006) — **congelado** em 2026-10-15 ([ADR 0017](adr/0017-congelar-viewer.md))
 ### Problema
 Docs de projeto (`ROADMAP`/`CHANGELOG`/ADRs) crescem e viram texto corrido; achar um item específico ou **reordenar prioridades** é lento e manual.
 
