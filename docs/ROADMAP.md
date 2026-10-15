@@ -5,10 +5,6 @@ Afazeres/pendências do projeto: somente trabalho aberto, com IDs permanentes (A
 > Só trabalho **aberto**. Concluído (check + demonstração + revisão independente por agente) vai íntegro p/ [docs/history/roadmap](history/roadmap/INDEX.md). A posição do card gera a versão (ADR 0008); o ID `R-NNN` é a identidade e nunca muda. Formato e critérios em [AGENTS.md](../AGENTS.md). ADR `proposed` aguardando o dono: [0012](adr/0012-validacao-automatica-tags.md). ROADMAP anterior: [arquivo](history/roadmap/2026-10-roadmap-checklist-inicial.md).
 
 ## v0.3.0 — Metodologia importada + viewer
-- **R-001 — Release da metodologia (v0.3.0) e tags faltantes** · Estado: pronto para revisão
-  **Objetivo:** fechar a adoção da metodologia (ADRs 0013–0016) como release e regularizar as tags.
-  **Escopo:** mover `[Unreleased]` do [CHANGELOG](CHANGELOG.md) para `[0.3.0]`; alinhar `packages/vscode/package.json` (ADR 0011); criar tag annotated `v0.2.0` (hoje só existe `v0.1.0`; o `check` avisa) e `v0.3.0`.
-  **Validação:** `npm run release` conclui sem erro; `git tag -l` lista v0.1.0, v0.2.0 e v0.3.0; tags e branch no remoto; `npm run check` sem avisos.
 - **R-002 — Atribuir versão a feature órfã pela posição** · Estado: planejado
   **Objetivo:** feature sem versão explícita recebe a versão da sua posição no doc ([ADR 0006](adr/0006-viewer-experience-design.md), [ADR 0008](adr/0008-roadmap-semver-reorder.md)).
   **Escopo:** `packages/vscode/src/core` (parser/modelo). **Validação:** teste do core com fixture de órfãs.
