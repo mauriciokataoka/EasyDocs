@@ -6,6 +6,8 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-15
+
 ### Changed
 - **Metodologia importada da documentação do ArchiveGuard, generalizada (ADRs 0013–0016):** `AGENTS.md` (raiz e `seed/`) reescrito como fonte normativa única; ROADMAP passa a conter só trabalho aberto, com IDs `R-NNN` permanentes, estados e critérios de pronto "conforme aplicável"; concluídos vão íntegros para `docs/history/roadmap/`; evidência honesta e testes de regressão como regra.
 - **Fim dos wikilinks/Obsidian (ADR 0013):** links Markdown relativos com âncora, IDs estáveis em texto; ADR 0003 superada nessa parte.

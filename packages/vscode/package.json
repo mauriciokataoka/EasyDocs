@@ -2,33 +2,53 @@
   "name": "easydocs",
   "displayName": "EasyDocs",
   "description": "Visualizador estruturado de ROADMAP/CHANGELOG/ADRs do projeto (casca VSCode).",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "commonjs",
   "main": "./dist/extension.js",
-  "engines": { "vscode": "^1.85.0", "node": ">=18" },
-  "categories": ["Other"],
-  "activationEvents": ["onCustomEditor:easydocs.structuredView"],
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=18"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCustomEditor:easydocs.structuredView"
+  ],
   "contributes": {
     "customEditors": [
       {
         "viewType": "easydocs.structuredView",
         "displayName": "EasyDocs — visão estruturada",
         "selector": [
-          { "filename": "ROADMAP.md" },
-          { "filename": "CHANGELOG.md" }
+          {
+            "filename": "ROADMAP.md"
+          },
+          {
+            "filename": "CHANGELOG.md"
+          }
         ],
         "priority": "option",
-        "webviewOptions": { "enableScripts": true, "retainContextWhenHidden": true }
+        "webviewOptions": {
+          "enableScripts": true,
+          "retainContextWhenHidden": true
+        }
       }
     ],
     "views": {
       "explorer": [
-        { "id": "easydocsView", "name": "EasyDocs" }
+        {
+          "id": "easydocsView",
+          "name": "EasyDocs"
+        }
       ]
     },
     "commands": [
-      { "command": "easydocs.showAdrs", "title": "EasyDocs: ver ADRs" }
+      {
+        "command": "easydocs.showAdrs",
+        "title": "EasyDocs: ver ADRs"
+      }
     ]
   },
   "scripts": {
