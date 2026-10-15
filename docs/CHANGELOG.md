@@ -7,11 +7,14 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 ## [Unreleased]
 
 ### Changed
-- **Metodologia importada da documentação do ArchiveGuard, generalizada (ADRs 0013–0016):** `AGENTS.md` (raiz e `seed/`) reescrito como fonte normativa única; ROADMAP passa a conter só trabalho aberto, com IDs `R-NNN` permanentes, estados e critérios de pronto "conforme aplicável"; concluídos vão íntegros para `history/roadmap/`; evidência honesta e testes de regressão como regra.
+- **Metodologia importada da documentação do ArchiveGuard, generalizada (ADRs 0013–0016):** `AGENTS.md` (raiz e `seed/`) reescrito como fonte normativa única; ROADMAP passa a conter só trabalho aberto, com IDs `R-NNN` permanentes, estados e critérios de pronto "conforme aplicável"; concluídos vão íntegros para `docs/history/roadmap/`; evidência honesta e testes de regressão como regra.
 - **Fim dos wikilinks/Obsidian (ADR 0013):** links Markdown relativos com âncora, IDs estáveis em texto; ADR 0003 superada nessa parte.
+- **`history/` movido para `docs/history/`** (espelha a estrutura dos projetos gerados); índice do roadmap arquivado ganha coluna de palavras-chave.
+- **Tag e push deixam de exigir aval do dono; conclusão deixa de exigir aceite do dono** — passa a exigir `check` + demonstração + revisão independente por agente (ADR 0014, emendada). **ADR 0007 (estilo verboso) aceita.**
 - **Status de ADR padronizado** (`proposed | accepted | superseded | deprecated`; `active` abolido); modelo de ADR ganha `Alternativas`.
 
 ### Added
+- **Release automático** (`seed/scripts/release.mjs`, `npm run release`): bump SemVer pelos Conventional Commits, `[Unreleased]`→versão, espelho de manifestos, commit `chore(release)`, tag annotated e push, sem aprovação do dono (ADR 0015, emendada).
 - `docs/field-notes/` (evidências datadas e imutáveis).
 - `check` local: `seed/scripts/check.mjs` (links, âncoras, wikilinks, ADRs × INDEX, IDs únicos, versão × CHANGELOG), `npm run check`, hook `.githooks/pre-push` (`npm run hooks`). Política de CI mínima/opt-in (ADR 0015); nenhum workflow criado.
 
@@ -39,5 +42,5 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 ## [0.1.0] - 2026-07-13
 
 ### Added
-- Scaffold inicial: `AGENTS.md`, `README.md`, `docs/` (PRD, ARCHITECTURE, DESIGN, ROADMAP, CHANGELOG), `docs/adr/` (índice + template Nygard), `history/`, `assets/`, `.editorconfig`, `.gitignore`.
+- Scaffold inicial: `AGENTS.md`, `README.md`, `docs/` (PRD, ARCHITECTURE, DESIGN, ROADMAP, CHANGELOG), `docs/adr/` (índice + template Nygard), `docs/history/`, `assets/`, `.editorconfig`, `.gitignore`.
 - `LICENSE` MIT; convenções baseline (ADR Nygard, Keep a Changelog, SemVer, Conventional Commits, wikilinks Obsidian).

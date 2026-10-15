@@ -16,7 +16,7 @@ Adotar a estrutura de pastas:
 - `seed/` — entregável do gerador (cópia inalterada de `AGENTS.md`+`SCAFFOLD.md`); **não executar aqui**, só no projeto destino.
 - `docs/` — `PRD` (âncora), `ROADMAP`, `CHANGELOG`, `adr/`.
 - `docs/adr/` — ADRs Nygard indexados.
-- `history/` — arquivado off-graph.
+- `docs/history/` — arquivado off-graph.
 - `assets/` — mídias/refs.
 
 Fluxo: agente lê `AGENTS.md` → retoma via `ROADMAP`+`adr/`; se `SCAFFOLD.md` existir e a pasta só tiver os dois arquivos-base, executa 1×; iterações viram ADRs/`ROADMAP`; `CHANGELOG` reflete releases SemVer.
@@ -26,4 +26,4 @@ Convenções: ADR Nygard (adr.github.io), Keep a Changelog + SemVer, Conventiona
 ## Consequências
 - Estrutura previsível e agnóstica a stack.
 - `seed/` desacoplado permite reuso como template.
-- `history/` fora do grafo evita poluição de navegação.
+- `docs/history/` fora do grafo evita poluição de navegação.

@@ -10,7 +10,7 @@
 | 0004 | EasyDocs: visualizador estruturado de ROADMAP/CHANGELOG/ADRs | product | accepted |
 | 0005 | Arquitetura do visualizador (núcleo compartilhado + cascas) | architecture | accepted |
 | 0006 | Experiência de visualização (design do viewer) | design | accepted |
-| 0007 | Estilo das instruções do agente: verboso, sem símbolos ambíguos | protocol | proposed |
+| 0007 | Estilo das instruções do agente: verboso, sem símbolos ambíguos | protocol | accepted |
 | 0008 | Mapeamento ROADMAP ↔ SemVer por posição (arraste reordena) | design | accepted |
 | 0009 | Integração do visualizador (Planner) no EasyDocs | architecture | accepted |
 | 0010 | Writer roundtrip com AST (preservação de formatação) | architecture | accepted |

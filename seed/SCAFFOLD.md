@@ -6,7 +6,7 @@
 ## Passos
 1. `git init` (repo próprio, branch `main`).
 2. `.editorconfig` (root=true; space/2; lf; utf-8; trim; final newline) e `.gitignore` (`.DS_Store`).
-3. Crie o `README.md` **na raiz** e os demais docs em **`docs/`**: `PRD.md` (âncora mínima, editada à mão) + `ROADMAP.md`, `CHANGELOG.md`; e as pastas `docs/adr/`, `docs/field-notes/`, `history/roadmap/`, `assets/`. O `scripts/check.mjs` e o `.githooks/pre-push` já vêm no `seed/`: ative o hook com `git config core.hooksPath .githooks`. `ARCHITECTURE`/`DESIGN` **não existem como arquivos** — são **views virtuais** do plugin, montadas a partir de ADRs por domínio (ver índice de ADRs).
+3. Crie o `README.md` **na raiz** e os demais docs em **`docs/`**: `PRD.md` (âncora mínima, editada à mão) + `ROADMAP.md`, `CHANGELOG.md`; e as pastas `docs/adr/`, `docs/field-notes/`, `docs/history/roadmap/`, `assets/`. O `scripts/check.mjs` e o `.githooks/pre-push` já vêm no `seed/`: ative o hook com `git config core.hooksPath .githooks`. `ARCHITECTURE`/`DESIGN` **não existem como arquivos** — são **views virtuais** do plugin, montadas a partir de ADRs por domínio (ver índice de ADRs).
 4. Em `docs/adr/`: `README.md` (índice — tabela `Nº · Título · Status`) e `0000-template.md` (modelo Nygard: *Status · Domínio · Contexto · Decisão · Alternativas · Consequências*; status `proposed | accepted | superseded | deprecated`).
 5. `docs/CHANGELOG.md` (nasce com `## [Unreleased]`; vira `0.1.0` no 1º release); `LICENSE` se público (raiz).
 6. Semeie o `docs/ROADMAP.md` (nesta ordem):
@@ -28,7 +28,7 @@
 - **`docs/CHANGELOG.md`** — *"Histórico de versões. Formato Keep a Changelog (keepachangelog.com); versionamento SemVer (semver.org)."*
 - **`docs/adr/INDEX.md`** — *"Índice de ADRs (decisões): Nº, título, status. Formato Nygard — adr.github.io. Status aqui dispensa abrir cada arquivo."*
 - **`docs/field-notes/INDEX.md`** — *"Índice de notas de campo: evidências datadas e imutáveis de validação e uso real."* (tabela `Data · Nota · Estado`)
-- **`history/INDEX.md`** — *"Índice do arquivado (roadmap concluído, decisões mortas). Fora da leitura padrão."* e **`history/roadmap/INDEX.md`** — *"Índice do ROADMAP arquivado; IDs `R-NNN` nunca são reutilizados."* (tabela `ID · Título · Estado final · Data · Arquivo`)
+- **`docs/history/INDEX.md`** — *"Índice do arquivado (roadmap concluído, decisões mortas). Fora da leitura padrão."* e **`docs/history/roadmap/INDEX.md`** — *"Índice do ROADMAP arquivado; IDs `R-NNN` nunca são reutilizados."* (tabela `ID · Título · Estado final · Data · Arquivo`)
 - **`assets/`** (pasta, sem doc) — mídias/refs que alimentam o trabalho (prints, ícones, fixtures); o usuário põe o que quiser aqui. Convenção difundida (sem 1 spec formal): React/Vue, Android (`app/src/main/assets/`), Unity (`Assets/`) usam esse nome — não invente outro (`media/`, `static/`...).
 
 ## Convenções-baseline (citar a fonte no topo do doc que segue um padrão)
@@ -36,4 +36,4 @@
 - Decisões = **ADR Nygard** em `docs/adr/`, indexadas, **status no índice** (https://adr.github.io).
 - **Conventional Commits** (conventionalcommits.org); **SemVer** + `CHANGELOG` (Keep a Changelog). `.editorconfig`. kebab-case. `LICENSE` se público.
 - Refs entre docs = **link Markdown relativo** com âncora (sem `[[wikilinks]]`); menção curta por ID estável (`R-004`, `ADR-0008`).
-- ROADMAP só com trabalho aberto, itens `R-NNN` permanentes, concluído arquivado em `history/roadmap/`; verificação local-first (`scripts/check.mjs`), sem GitHub Actions por padrão.
+- ROADMAP só com trabalho aberto, itens `R-NNN` permanentes, concluído arquivado em `docs/history/roadmap/`; verificação local-first (`scripts/check.mjs`), sem GitHub Actions por padrão.

@@ -2,13 +2,13 @@ Afazeres/pendências do projeto: somente trabalho aberto, com IDs permanentes (A
 
 # ROADMAP — EasyDocs
 
-> Só trabalho **aberto**. Concluído (com aceite do dono) vai íntegro p/ [history/roadmap](../history/roadmap/INDEX.md). A posição do card gera a versão (ADR 0008); o ID `R-NNN` é a identidade e nunca muda. Formato e critérios em [AGENTS.md](../AGENTS.md). ADRs `proposed` aguardando o dono: [0007](adr/0007-instruction-style-verbose.md), [0012](adr/0012-validacao-automatica-tags.md). ROADMAP anterior: [arquivo](../history/roadmap/2026-10-roadmap-checklist-inicial.md).
+> Só trabalho **aberto**. Concluído (check + demonstração + revisão independente por agente) vai íntegro p/ [docs/history/roadmap](history/roadmap/INDEX.md). A posição do card gera a versão (ADR 0008); o ID `R-NNN` é a identidade e nunca muda. Formato e critérios em [AGENTS.md](../AGENTS.md). ADR `proposed` aguardando o dono: [0012](adr/0012-validacao-automatica-tags.md). ROADMAP anterior: [arquivo](history/roadmap/2026-10-roadmap-checklist-inicial.md).
 
 ## v0.3.0 — Metodologia importada + viewer
 - **R-001 — Release da metodologia (v0.3.0) e tags faltantes** · Estado: pronto para revisão
   **Objetivo:** fechar a adoção da metodologia (ADRs 0013–0016) como release e regularizar as tags.
   **Escopo:** mover `[Unreleased]` do [CHANGELOG](CHANGELOG.md) para `[0.3.0]`; alinhar `packages/vscode/package.json` (ADR 0011); criar tag annotated `v0.2.0` (hoje só existe `v0.1.0`; o `check` avisa) e `v0.3.0`.
-  **Validação:** `npm run check` sem avisos; `git tag -l` lista as três tags. **Dependências:** aceite do dono sobre a migração (push/tags só com aprovação).
+  **Validação:** `npm run release` conclui sem erro; `git tag -l` lista v0.1.0, v0.2.0 e v0.3.0; tags e branch no remoto; `npm run check` sem avisos.
 - **R-002 — Atribuir versão a feature órfã pela posição** · Estado: planejado
   **Objetivo:** feature sem versão explícita recebe a versão da sua posição no doc ([ADR 0006](adr/0006-viewer-experience-design.md), [ADR 0008](adr/0008-roadmap-semver-reorder.md)).
   **Escopo:** `packages/vscode/src/core` (parser/modelo). **Validação:** teste do core com fixture de órfãs.
@@ -26,13 +26,11 @@ Afazeres/pendências do projeto: somente trabalho aberto, com IDs permanentes (A
 
 ## v0.4.0 — Método e seed
 - **R-007 — Reexecutar a conformância com o `seed/AGENTS.md` novo** · Estado: planejado
-  **Objetivo:** o seed mudou bastante (ROADMAP com IDs, pronto/evidência, check, CI); validar em ≥2 modelos pelo [roteiro](CONFORMANCE.md) e acrescentar critérios para as regras novas (ex.: não reutilizar ID; registrar evidência com resultado).
+  **Objetivo:** o seed mudou bastante (ROADMAP com IDs, pronto/evidência, revisão por agente, check, release automático); validar em ≥2 modelos pelo [roteiro](CONFORMANCE.md) e acrescentar critérios para as regras novas (ex.: não reutilizar ID; registrar evidência com resultado).
   **Escopo:** rodar o roteiro e registrar em [field-notes](field-notes/INDEX.md). **Validação:** matriz preenchida em nota de campo.
 - **R-008 — Validar tags `@ADR/@PRD/@ROADMAP` no `check`** · Estado: planejado
   **Objetivo:** tornar enforceável a regra de rastreabilidade ([ADR 0012](adr/0012-validacao-automatica-tags.md), `proposed`). **Dependências:** o dono ratificar a ADR 0012; hoje o código de `packages/vscode` não tem tags.
   **Validação:** `check` falha em entidade pública sem tag.
-- **R-009 — Ratificar ou rejeitar o estilo verboso do seed** · Estado: aguardando decisão do dono
-  **Contexto:** o `seed/AGENTS.md` já está no estilo da [ADR 0007](adr/0007-instruction-style-verbose.md) (`proposed`). **Validação:** decisão do dono; depois mudar o status da ADR.
 - **R-010 — Decidir ARCHITECTURE/DESIGN: views virtuais × arquivos materializados** · Estado: aguardando decisão do dono
   **Contexto:** a [ADR 0001](adr/0001-collapse-docs-into-adrs.md) mantém views virtuais (só o plugin as monta); sem o plugin, um agente reconstrói o estado atual a partir das ADRs. **Opções:** manter; gerar `ARCHITECTURE.md` por script; módulo opcional no seed. **Validação:** ADR com a decisão.
 - **R-011 — Módulo BDD opcional no seed** · Estado: adiado

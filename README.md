@@ -5,7 +5,7 @@ Visão geral p/ humano; aponta p/ as docs de agente.
 Scaffold mínimo de documentação orientada a agente (IA). Fornece `AGENTS.md` e `SCAFFOLD.md` para iniciar qualquer projeto com docs canônicas, ADRs e versionamento — sem dependências.
 
 ## O que é
-Um repositório-template: copie a pasta `seed/` inteira para a raiz do projeto novo, renomeie com o nome do projeto, e execute `AGENTS.md`. O agente inicializa `README`, `docs/` (PRD, ROADMAP, CHANGELOG, adr/, field-notes/, history/), `scripts/check.mjs` e o hook `pre-push`, configurações VSCode e versiona com git.
+Um repositório-template: copie a pasta `seed/` inteira para a raiz do projeto novo, renomeie com o nome do projeto, e execute `AGENTS.md`. O agente inicializa `README`, `docs/` (PRD, ROADMAP, CHANGELOG, adr/, field-notes/, history/ — tudo em `docs/`), `scripts/check.mjs` e o hook `pre-push`, configurações VSCode e versiona com git.
 
 ## Documentação do agente
 As docs canônicas vivem em [`docs/`](docs/); as regras do protocolo, em [AGENTS.md](AGENTS.md):

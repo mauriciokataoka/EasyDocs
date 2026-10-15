@@ -15,14 +15,14 @@ const warns = [];
 const rel = (p) => path.relative(root, p) || ".";
 const fail = (f, m) => errors.push(`${rel(f)}: ${m}`);
 
-// history/ preserva texto original: só os INDEX.md são verificados.
+// docs/history/ preserva texto original: só os INDEX.md são verificados.
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
     if (e.isDirectory()) {
       if (!SKIP.has(e.name)) walk(p, out);
     } else if (e.name.endsWith(".md")) {
-      const archived = rel(p).split(path.sep)[0] === "history" && e.name !== "INDEX.md";
+      const archived = rel(p).startsWith(`docs${path.sep}history${path.sep}`) && e.name !== "INDEX.md";
       if (!archived) out.push(p);
     }
   }
@@ -83,18 +83,18 @@ if (fs.existsSync(path.join(adrDir, "INDEX.md"))) {
   for (const id of rows.keys()) fail(path.join(adrDir, "INDEX.md"), `linha ${id} sem arquivo`);
 }
 
-// 3. IDs R-NNN únicos (ROADMAP × history/roadmap)
+// 3. IDs R-NNN únicos (ROADMAP × docs/history/roadmap)
 const roadmap = path.join(root, "docs/ROADMAP.md");
 const ids = new Map();
 const addId = (id, where) => ids.set(id, [...(ids.get(id) ?? []), where]);
 if (fs.existsSync(roadmap)) {
   for (const m of stripCode(fs.readFileSync(roadmap, "utf8")).matchAll(/^\s*[-*]\s+\*\*(R-\d+)\b/gm)) addId(m[1], "ROADMAP");
 }
-const hist = path.join(root, "history/roadmap");
+const hist = path.join(root, "docs/history/roadmap");
 if (fs.existsSync(hist)) {
   for (const n of fs.readdirSync(hist)) {
     const m = /^(R-\d+)-.+\.md$/.exec(n);
-    if (m) addId(m[1], `history/roadmap/${n}`);
+    if (m) addId(m[1], `docs/history/roadmap/${n}`);
   }
 }
 for (const [id, where] of ids) if (where.length > 1) fail(roadmap, `${id} duplicado (${where.join(", ")}) — IDs nunca são reutilizados`);
