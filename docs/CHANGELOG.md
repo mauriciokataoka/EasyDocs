@@ -6,6 +6,8 @@ Todas as versões significativas documentadas aqui. O formato segue [Keep a Chan
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-10-15
+
 ### Changed
 - **Regras novas no `AGENTS.md` (raiz e seed):** docs direto na `main`, código sempre em branch; nunca commitar segredos; estado `congelado`. Release só roda na `main`; primeiro release = `0.1.0`.
 - **Viewer (`packages/vscode`) congelado** ([ADR 0017](adr/0017-congelar-viewer.md)); ADR 0011 superseded pela 0015.
