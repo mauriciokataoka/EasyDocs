@@ -6,4 +6,4 @@ Cada nota (`AAAA-MM-DD-assunto.md`) registra ambiente, comandos, resultados, lim
 
 | Data | Nota | Estado |
 |---|---|---|
-| — | — | — |
+| 2026-10-15 | [Conformância do `seed/` em vários modelos](2026-10-15-conformancia-seed.md) | 8 ambiguidades corrigidas; Kimi/DeepSeek (2 arquivos) não executados |

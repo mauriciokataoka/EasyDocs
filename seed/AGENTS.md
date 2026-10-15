@@ -42,7 +42,7 @@ A raiz contém apenas `AGENTS.md` e `README.md`. As docs canônicas ficam em `do
 - Mudança estrutural (I0: novo artefato, termo, doc ou pasta) ou alteração deste arquivo (I2) DEVE seguir propor, aprovar, executar, com aprovação explícita do dono para I2. Atualizar o conteúdo de PRD, ROADMAP e README em resposta a uma instrução direta do usuário é execução direta.
 
 ### Links e referências
-- Entre docs, use link Markdown relativo, por exemplo `[ADR-0008](adr/0008-nome.md)`, com âncora para uma seção, por exemplo `[R-004](ROADMAP.md#r-004--titulo)`. Para código com linha: `[x.ts](../src/x.ts#L10)`.
+- Entre docs, use link Markdown relativo, por exemplo `[ADR-0008](adr/0008-nome.md)`, com âncora para uma SEÇÃO (título `##`), por exemplo `[Método](AGENTS.md#método)`. Itens do ROADMAP são bullets e NÃO têm âncora: cite-os só pelo identificador (`R-004`) ou linke `ROADMAP.md` sem âncora. Para código com linha: `[x.ts](../src/x.ts#L10)`.
 - NÃO use `[[wikilinks]]`: só funcionam em um aplicativo específico.
 - Para menção curta, use o identificador estável em texto: `R-004`, `ADR-0008`.
 

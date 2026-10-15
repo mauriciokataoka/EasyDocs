@@ -28,7 +28,7 @@
 - **Propor→aprovar→executar** = só p/ mudança **estrutural** (I0) ou p/ alterar **este arquivo** (I2). Atualizar **conteúdo** de PRD/README/ROADMAP em resposta direta a instrução do usuário é execução direta.
 
 ### Links e referências (ADR 0013)
-- Entre docs: link Markdown **relativo** `[ADR-0008](adr/0008-nome.md)`, com âncora p/ seção `[R-004](ROADMAP.md#r-004--titulo)`; p/ código com linha `[x.ts](../src/x.ts#L10)`. **Sem `[[wikilinks]]`.**
+- Entre docs: link Markdown **relativo** `[ADR-0008](adr/0008-nome.md)`, com âncora p/ **seção** (`## título`) `[Método](AGENTS.md#método)` — itens do ROADMAP são bullets e **não têm âncora**: cite-os só por ID (`R-004`) ou linke `ROADMAP.md`; p/ código com linha `[x.ts](../src/x.ts#L10)`. **Sem `[[wikilinks]]`.**
 - Menção curta por **ID estável** em texto: `R-004`, `ADR-0008`. IDs nunca mudam nem são reutilizados.
 
 ### ADRs (ADR 0016)

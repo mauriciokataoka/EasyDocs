@@ -5,9 +5,6 @@ Afazeres/pendências do projeto: somente trabalho aberto, com IDs permanentes (A
 > Só trabalho **aberto**. Concluído (check + demonstração + revisão independente por agente) vai íntegro p/ [docs/history/roadmap](history/roadmap/INDEX.md). A posição do card gera a versão (ADR 0008); o ID `R-NNN` é a identidade e nunca muda. Formato e critérios em [AGENTS.md](../AGENTS.md). ADR `proposed` aguardando o dono: [0012](adr/0012-validacao-automatica-tags.md). Viewer congelado: [ADR 0017](adr/0017-congelar-viewer.md). ROADMAP anterior: [arquivo](history/roadmap/2026-10-roadmap-checklist-inicial.md).
 
 ## v0.4.0 — Método e seed
-- **R-007 — Reexecutar a conformância com o `seed/AGENTS.md` novo** · Estado: planejado
-  **Objetivo:** o seed mudou bastante (ROADMAP com IDs, pronto/evidência, revisão por agente, check, release automático); validar em ≥2 modelos pelo [roteiro](CONFORMANCE.md) e acrescentar critérios para as regras novas (ex.: não reutilizar ID; registrar evidência com resultado).
-  **Escopo:** rodar o roteiro e registrar em [field-notes](field-notes/INDEX.md). **Validação:** matriz preenchida em nota de campo.
 - **R-008 — Validar tags `@ADR/@PRD/@ROADMAP` no `check`** · Estado: planejado
   **Objetivo:** tornar enforceável a regra de rastreabilidade ([ADR 0012](adr/0012-validacao-automatica-tags.md), `proposed`). **Dependências:** o dono ratificar a ADR 0012; hoje o código de `packages/vscode` não tem tags.
   **Validação:** `check` falha em entidade pública sem tag.
