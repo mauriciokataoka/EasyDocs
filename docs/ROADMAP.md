@@ -8,9 +8,12 @@ Afazeres/pendências do projeto: somente trabalho aberto, com IDs permanentes (A
 - **R-008 — Validar tags `@ADR/@PRD/@ROADMAP` no `check`** · Estado: planejado
   **Objetivo:** tornar enforceável a regra de rastreabilidade ([ADR 0012](adr/0012-validacao-automatica-tags.md), `proposed`). **Dependências:** o dono ratificar a ADR 0012; hoje o código de `packages/vscode` não tem tags.
   **Validação:** `check` falha em entidade pública sem tag.
-- **R-010 — Decidir ARCHITECTURE/DESIGN: views virtuais × arquivos materializados** · Estado: aguardando decisão do dono
-  **Contexto:** a [ADR 0001](adr/0001-collapse-docs-into-adrs.md) mantém views virtuais (só o plugin do viewer as montaria — **nunca foi implementado**, e o viewer está congelado); hoje esses dois documentos não existem em lugar nenhum e um agente reconstrói o estado atual a partir das ADRs. **Opções:** manter a ideia; gerar `ARCHITECTURE.md`/`DESIGN.md` por script a partir das ADRs (recomendação do agente: dá arquivo real, ADRs seguem como fonte); arquivos reais como módulo opcional no seed. **Validação:** ADR com a decisão.
-
+- **R-013 — Gerar `ARCHITECTURE.md` e `DESIGN.md` por script (`scripts/views.mjs`)** · Estado: planejado
+  **Objetivo:** implementar a decisão da [ADR 0018](adr/0018-views-geradas-por-script.md): dois arquivos gerados a partir das ADRs, para um agente ler o estado atual de arquitetura e de design sem abrir ADR por ADR.
+  **Escopo:** script Node sem dependências (`seed/scripts/views.mjs`) que lê `docs/adr/*.md`, filtra `Status: accepted` e `Domínio: architecture` (→ `docs/ARCHITECTURE.md`) ou `design` (→ `docs/DESIGN.md`), ordena por número e emite, por ADR, um `##` com o título, o texto de **Decisão** e **Consequências** e o link para a ADR de origem; cabeçalho "gerado por scripts/views.mjs — não edite"; integrar ao `check` (falha se o arquivo estiver desatualizado: regenera em memória e compara); atualizar o Mapa e a seção ADRs do `AGENTS.md` (raiz e seed, I2: aprovado em princípio pelo dono) e o `SCAFFOLD` (gerar os arquivos no scaffold).
+  **Fora de escopo:** PRD (continua âncora à mão); resumir ou reescrever texto das ADRs; viewer/plugin.
+  **Dependências:** ADRs com `Domínio` preenchido e válido (por isso o seed lista os domínios). **Riscos:** ADR sem domínio ou com status fora do padrão some das views — o `check` já valida status; avisar quando o domínio faltar. Cuidado com o conflito com o parser de ADR do viewer (congelado, sem impacto).
+  **Validação:** teste de regressão do script (ADRs de exemplo → saída esperada; ADR `proposed`/`superseded` fora; arquivo desatualizado reprova no `check`); gerar para este repositório e conferir que as ADRs `architecture`/`design` aceitas aparecem.
 ## Congelado
 > Adiado por decisão do dono em 2026-10-15; reativar só por decisão dele. Viewer: [ADR 0017](adr/0017-congelar-viewer.md) ("não estou vendo necessidade mais"). BDD: só faria sentido com o viewer estável.
 - **R-002 — Atribuir versão a feature órfã pela posição** · Estado: congelado

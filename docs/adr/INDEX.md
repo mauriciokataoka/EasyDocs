@@ -4,7 +4,7 @@
 
 | Nº | Título | Domínio | Status |
 |----|--------|---------|--------|
-| 0001 | Colapsar PRD/ARCHITECTURE/DESIGN em ADRs tagueados por domínio | — | accepted |
+| 0001 | Colapsar PRD/ARCHITECTURE/DESIGN em ADRs tagueados por domínio (views: ver 0018) | — | accepted |
 | 0002 | Estrutura de artefatos do repositório (EasyDocs) | architecture | accepted |
 | 0003 | Camadas de leitura e apresentação (wikilinks superseded pela 0013) | design | accepted |
 | 0004 | EasyDocs: visualizador estruturado de ROADMAP/CHANGELOG/ADRs | product | accepted |
@@ -21,3 +21,4 @@
 | 0015 | Verificação local-first, política de CI e fonte única de versão | protocol | accepted |
 | 0016 | `AGENTS.md` como fonte normativa única, `field-notes/` e status de ADR | protocol | accepted |
 | 0017 | Congelar o visualizador (packages/vscode) | product | accepted |
+| 0018 | ARCHITECTURE e DESIGN geradas por script a partir das ADRs | architecture | accepted |
