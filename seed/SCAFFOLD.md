@@ -5,9 +5,9 @@
 
 ## Passos
 1. `git init` (repo próprio, branch `main`).
-2. `.editorconfig` (root=true; space/2; lf; utf-8; trim; final newline) e `.gitignore` (`.DS_Store`, `.obsidian/`).
-3. Crie o `README.md` **na raiz** e os demais docs em **`docs/`**: `PRD.md` (âncora mínima, editada à mão) + `ROADMAP.md`, `CHANGELOG.md`; e as pastas `docs/adr/`, `history/`, `assets/`. `ARCHITECTURE`/`DESIGN` **não existem como arquivos** — são **views virtuais** do plugin, montadas a partir de ADRs por domínio (ver índice de ADRs).
-4. Em `docs/adr/`: `README.md` (índice — tabela `Nº · Título · Status`) e `0000-template.md` (modelo Nygard: *Status · Contexto · Decisão · Consequências*).
+2. `.editorconfig` (root=true; space/2; lf; utf-8; trim; final newline) e `.gitignore` (`.DS_Store`).
+3. Crie o `README.md` **na raiz** e os demais docs em **`docs/`**: `PRD.md` (âncora mínima, editada à mão) + `ROADMAP.md`, `CHANGELOG.md`; e as pastas `docs/adr/`, `docs/field-notes/`, `history/roadmap/`, `assets/`. O `scripts/check.mjs` e o `.githooks/pre-push` já vêm no `seed/`: ative o hook com `git config core.hooksPath .githooks`. `ARCHITECTURE`/`DESIGN` **não existem como arquivos** — são **views virtuais** do plugin, montadas a partir de ADRs por domínio (ver índice de ADRs).
+4. Em `docs/adr/`: `README.md` (índice — tabela `Nº · Título · Status`) e `0000-template.md` (modelo Nygard: *Status · Domínio · Contexto · Decisão · Alternativas · Consequências*; status `proposed | accepted | superseded | deprecated`).
 5. `docs/CHANGELOG.md` (nasce com `## [Unreleased]`; vira `0.1.0` no 1º release); `LICENSE` se público (raiz).
 6. Semeie o `docs/ROADMAP.md` (nesta ordem):
    - [ ] Confirmar se o nome da pasta é o nome do projeto (registrar no `PRD`/`README`).
@@ -27,11 +27,13 @@
 - **`docs/ROADMAP.md`** — *"Afazeres/pendências do projeto (TODOs)."*
 - **`docs/CHANGELOG.md`** — *"Histórico de versões. Formato Keep a Changelog (keepachangelog.com); versionamento SemVer (semver.org)."*
 - **`docs/adr/INDEX.md`** — *"Índice de ADRs (decisões): Nº, título, status. Formato Nygard — adr.github.io. Status aqui dispensa abrir cada arquivo."*
-- **`history/INDEX.md`** — *"Índice do arquivado (iterações/decisões mortas). Off-graph."*
+- **`docs/field-notes/INDEX.md`** — *"Índice de notas de campo: evidências datadas e imutáveis de validação e uso real."* (tabela `Data · Nota · Estado`)
+- **`history/INDEX.md`** — *"Índice do arquivado (roadmap concluído, decisões mortas). Fora da leitura padrão."* e **`history/roadmap/INDEX.md`** — *"Índice do ROADMAP arquivado; IDs `R-NNN` nunca são reutilizados."* (tabela `ID · Título · Estado final · Data · Arquivo`)
 - **`assets/`** (pasta, sem doc) — mídias/refs que alimentam o trabalho (prints, ícones, fixtures); o usuário põe o que quiser aqui. Convenção difundida (sem 1 spec formal): React/Vue, Android (`app/src/main/assets/`), Unity (`Assets/`) usam esse nome — não invente outro (`media/`, `static/`...).
 
 ## Convenções-baseline (citar a fonte no topo do doc que segue um padrão)
 - **AGENTS.md** (https://agents.md): formato aberto de instruções para coding agents; `AGENTS.md` na raiz + `SCAFFOLD.md` inicializador. Fonte deste protocolo.
 - Decisões = **ADR Nygard** em `docs/adr/`, indexadas, **status no índice** (https://adr.github.io).
 - **Conventional Commits** (conventionalcommits.org); **SemVer** + `CHANGELOG` (Keep a Changelog). `.editorconfig`. kebab-case. `LICENSE` se público.
-- Refs entre docs de agente = `[[wikilink]]` (Obsidian; grafo = mapa mental); `README` usa links padrão; `history/` fora do grafo.
+- Refs entre docs = **link Markdown relativo** com âncora (sem `[[wikilinks]]`); menção curta por ID estável (`R-004`, `ADR-0008`).
+- ROADMAP só com trabalho aberto, itens `R-NNN` permanentes, concluído arquivado em `history/roadmap/`; verificação local-first (`scripts/check.mjs`), sem GitHub Actions por padrão.

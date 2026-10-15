@@ -2,7 +2,7 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0002 — Estrutura de artefatos do repositório (EasyDocs)
 
-- Status: active
+- Status: accepted
 - Domínio: architecture
 
 ## Contexto
@@ -21,7 +21,7 @@ Adotar a estrutura de pastas:
 
 Fluxo: agente lê `AGENTS.md` → retoma via `ROADMAP`+`adr/`; se `SCAFFOLD.md` existir e a pasta só tiver os dois arquivos-base, executa 1×; iterações viram ADRs/`ROADMAP`; `CHANGELOG` reflete releases SemVer.
 
-Convenções: ADR Nygard (adr.github.io), Keep a Changelog + SemVer, Conventional Commits, wikilinks Obsidian.
+Convenções: ADR Nygard (adr.github.io), Keep a Changelog + SemVer, Conventional Commits, links Markdown relativos (ADR 0013).
 
 ## Consequências
 - Estrutura previsível e agnóstica a stack.

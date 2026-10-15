@@ -1,16 +1,20 @@
-Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · Consequências*.
+Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · Alternativas · Consequências*.
 
-# ADR 0000 — Template de ADR (Nygard)
+# ADR NNNN — Título
 
-- Status: active
+- Status: proposed
+- Domínio: product | architecture | design | protocol
 
 ## Contexto
-Projetos precisam registrar decisões de forma rastreável. O formato Nygard (Status · Contexto · Decisão · Consequências) é leve e difundido (adr.github.io).
+Qual problema ou escolha motivou a decisão?
 
 ## Decisão
-Adotar ADRs Nygard em `docs/adr/`, indexados em `docs/adr/INDEX.md` com status visível. ADR 0000 é o próprio modelo.
+O que foi escolhido?
+
+## Alternativas
+O que foi considerado e rejeitado, e por quê.
 
 ## Consequências
-- Decisões ficam versionadas junto do código.
-- O índice permite saber o estado sem abrir cada arquivo.
-- Decisões mortas vão para `history/` (off-graph), mantendo o grafo limpo.
+Benefícios, custos, riscos e limitações.
+
+> Status permitidos: `proposed` (sugestão, aguarda aprovação) · `accepted` (vigente) · `superseded` (substituída; apontar a ADR substituta) · `deprecated` (deixou de valer, sem substituta). ADR 0000 é este modelo.

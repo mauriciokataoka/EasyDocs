@@ -2,7 +2,7 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0006 — Experiência de visualização (design do viewer)
 
-- Status: active
+- Status: accepted
 - Domínio: design
 
 ## Contexto

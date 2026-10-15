@@ -2,7 +2,7 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0005 — Arquitetura do visualizador (núcleo compartilhado + cascas)
 
-- Status: active
+- Status: accepted
 - Domínio: architecture
 
 ## Contexto

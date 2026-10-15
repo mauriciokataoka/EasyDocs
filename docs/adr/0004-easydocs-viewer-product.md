@@ -2,7 +2,7 @@ Modelo Nygard para decisões de arquitetura. *Status · Contexto · Decisão · 
 
 # ADR 0004 — EasyDocs: visualizador estruturado de ROADMAP/CHANGELOG/ADRs
 
-- Status: active
+- Status: accepted
 - Domínio: product
 
 ## Contexto

@@ -1,56 +1,41 @@
-Afazeres/pendências do projeto (TODOs).
+Afazeres/pendências do projeto: somente trabalho aberto, com IDs permanentes (ADR 0014).
 
 # ROADMAP — EasyDocs
 
-> Tarefas do projeto. Marque `- [x]` ao concluir. Itens que aguardam decisão do dono ficam aqui até resolvidos.
+> Só trabalho **aberto**. Concluído (com aceite do dono) vai íntegro p/ [history/roadmap](../history/roadmap/INDEX.md). A posição do card gera a versão (ADR 0008); o ID `R-NNN` é a identidade e nunca muda. Formato e critérios em [AGENTS.md](../AGENTS.md). ADRs `proposed` aguardando o dono: [0007](adr/0007-instruction-style-verbose.md), [0012](adr/0012-validacao-automatica-tags.md). ROADMAP anterior: [arquivo](../history/roadmap/2026-10-roadmap-checklist-inicial.md).
 
-- [x] Confirmar que o nome da pasta (`EasyDocs`) é o nome do projeto — registrado em [[PRD]]/[[README]].
-- [ ] Definir o destino do `push` (remote GitHub) — *pode adiar*.
-- [x] Detalhar o objetivo no [[PRD]] (template de docs orientadas a agente).
-- [x] Confirmar que o **gerador** (`seed/` + docs) não é um app → sem `src/` na raiz; o plugin VSCode tem seu próprio `src/` em `packages/vscode/` (ADR 0005).
-- [x] Confirmar que o **gerador é estático** (sem build na raiz); o plugin VSCode tem runtime/esbuild próprios (ADR 0005).
-- [x] Idioma canônico: pt-BR (alinhado às docs atuais).
-- [x] Validar `AGENTS.md` contra a especificação agents.md (https://agents.md) e versionar como `v0.1.0`.
-- [ ] Adicionar exemplo de ADR `proposed` real para exercitar o fluxo.
-- [ ] (Opcional, I2) Agregar a `AGENTS.md` nota de "sem build/test/segredos" alinhada às seções recomendadas da spec agents.md (aguarda aprovação do dono).
-- [x] Renomear projeto **MinimalDocs → EasyDocs** (pasta + PRD/README/CHANGELOG/refs nas docs) — concluído.
-- [x] Trazer o projeto **VSCode (visualizador de docs)** e fundi-lo aqui: **especificações trazidas** (ADRs 0004/0005/0006) e **código integrado** em `packages/vscode/` (ADR 0009).
-  - Fonte: `/Users/mauriciokataoka/Documents/GitHub/Planner` — package `easydocs` v0.2.0, já nomeado EasyDocs; segue as mesmas convenções AGENTS.md (fusão limpa).
-  - Import por **cópia do código final** (sem histórico git); excluídos `CLAUDE.md`, `node_modules/`, `dist/`, `.git`. `docs(example)/` mantido como fixture de testes. Docs narrativos do Planner removidos (fonte única é `docs/` na raiz, ADR 0001).
+## v0.3.0 — Metodologia importada + viewer
+- **R-001 — Release da metodologia (v0.3.0) e tags faltantes** · Estado: pronto para revisão
+  **Objetivo:** fechar a adoção da metodologia (ADRs 0013–0016) como release e regularizar as tags.
+  **Escopo:** mover `[Unreleased]` do [CHANGELOG](CHANGELOG.md) para `[0.3.0]`; alinhar `packages/vscode/package.json` (ADR 0011); criar tag annotated `v0.2.0` (hoje só existe `v0.1.0`; o `check` avisa) e `v0.3.0`.
+  **Validação:** `npm run check` sem avisos; `git tag -l` lista as três tags. **Dependências:** aceite do dono sobre a migração (push/tags só com aprovação).
+- **R-002 — Atribuir versão a feature órfã pela posição** · Estado: planejado
+  **Objetivo:** feature sem versão explícita recebe a versão da sua posição no doc ([ADR 0006](adr/0006-viewer-experience-design.md), [ADR 0008](adr/0008-roadmap-semver-reorder.md)).
+  **Escopo:** `packages/vscode/src/core` (parser/modelo). **Validação:** teste do core com fixture de órfãs.
+- **R-003 — Busca por versão + treeview** · Estado: planejado
+  **Objetivo:** localizar cards por versão e navegar em árvore ([ADR 0006](adr/0006-viewer-experience-design.md)).
+  **Escopo:** UI do webview e painel da Activity Bar. **Validação:** manual no Extension Development Host (F5) + nota de campo.
+- **R-004 — Render de doc único (painel/aba do VSCode)** · Estado: planejado
+  **Objetivo:** abrir um único doc estruturado em painel/aba. **Escopo:** extensão + webview. **Validação:** manual em F5 + nota de campo.
+- **R-005 — ROADMAP: cards arrastáveis + auto-renumeração de versão** · Estado: planejado
+  **Objetivo:** reordenar por arraste e recalcular a versão pela posição (algoritmo da [ADR 0008](adr/0008-roadmap-semver-reorder.md)), com write-back que preserva a formatação ([ADR 0010](adr/0010-writer-roundtrip-ast.md)).
+  **Escopo:** UI + writer. **Riscos:** corromper o `.md`; o novo formato de item (bullet `**R-NNN — …**` + linhas indentadas) deve sobreviver ao roundtrip e o ID não pode mudar.
+  **Validação:** testes do core de roundtrip com este ROADMAP como fixture + F5.
+- **R-006 — Comando/menu de contexto (opcional)** · Estado: planejado
+  **Objetivo:** atalho de contexto para abrir a visão estruturada. **Escopo:** manifesto da extensão. **Validação:** manual em F5.
 
-## Visualizador (herdado do Planner — ADRs 0004/0005/0006)
-Tarefas de implementação do plugin VSCode. No Planner estavam parcialmente concluídas; aqui ficam pendentes até integração em `packages/vscode/` e validação em execução (ADR 0005: código não validado). Itens marcados `*(feito no Planner; revalidar)*` foram concluídos lá, mas precisam ser reconfirmados no repo unificado.
-
-### Core (compartilhado)
-- [x] Writer roundtrip (`.md` ← modelo) preservando formatação (ADR 0010 — AST-based com remark/unified).
-- [ ] Atribuir versão a feature órfã pela posição (ordem) no doc (ADR 0006 / ADR 0008).
-
-### UI compartilhada (webview)
-- [x] Cards colapsáveis por versão; render de Roadmap/Changelog/ADRs; busca por texto. *(feito no Planner; revalidar)*
-- [x] Features órfãs destacadas (grupo próprio). *(feito no Planner; revalidar)*
-- [ ] Busca por versão + treeview.
-- [ ] Render de doc único (painel/aba do VSCode).
-- [ ] **ROADMAP: cards arrastáveis + auto-renumeração de versão ao reordenar** (ADR 0006 / ADR 0008 — algoritmo definido).
-
-### Extensão VSCode
-- [x] Manifest + build esbuild (`dist/extension.js`, `dist/webview.js`, `dist/webview.css`). *(feito no Planner; revalidar)*
-- [x] Ponte host↔webview (`workspace.fs` → core → `postMessage`). *(feito no Planner; revalidar)*
-- [x] Custom Editor para `ROADMAP.md`/`CHANGELOG.md`. *(feito no Planner; revalidar)*
-- [x] Painel EasyDocs na Activity Bar (TreeView). *(feito no Planner; revalidar)*
-- [x] Remover casca HTML/SPA (`src/web`). *(feito no Planner)*
-- [x] Verificação manual no Extension Development Host (F5) — **corrigido**: `launch.json` agora tem `preLaunchTask: build`, e `.vscode/tasks.json` builda via `npm run build`. Causa raiz de "não funcionava": o webview lê `dist/webview.js`/`webview.css` em runtime, mas `dist/` é gitignorado e ausente sem build — F5 sem build queueava ao ler arquivos inexistentes.
-- [ ] Comando/menu de contexto (opcional).
-
-### Testes e distribuição
-- [x] Testes automatizados do core (fixture `docs(example)/`). *(feito no Planner; revalidar)*
-- [x] Fixture `docs(example)/` fica local (não entra versionado).
-- [x] Empacotar/distribuir (uso pessoal: VSIX manual via `vsce package`, sem Marketplace/CI-CD).
-
-- [x] (I0 / ADR 0009) Estrutura de monorepo: gerador na raiz + extensão em `packages/vscode/`; `AGENTS.md` aninhado na extensão tem precedência (spec agents.md).
-- [x] (I0 / ADR 0009) Versionamento **unificado**: um único número SemVer (produto combinado em `0.2.0`); `CHANGELOG` único funde generator (0.1.0) + viewer (0.2.0).
-- [x] (ADR 0011) Regra de versionamento unificado: viewer dita o bump (gerador estático, viewer ativo).
-- [x] (I0 / ADR 0009) Mesclagem de histórico: **cópia do código final** (sem `subtree`); histórico do Planner não preservado como branch.
-- [x] Implementar o visualizador: **reaproveitar** o código do Planner, copiado em `packages/vscode/` (ADR 0009). Validação em execução pendente nos itens abaixo.
-- [x] Renomear repo **MinimalDocs → EasyDocs** (pasta): produto já é EasyDocs (ADR 0004); ajustar nomes/refs em docs — concluído.
-- [x] (ADR 0007) Validar `seed/AGENTS.md` reescrito em ≥2 modelos (conformância) — exercitado com 5 modelos no teste de landing page; estilo aprovado para o root `AGENTS.md`.
-- [x] (ADR 0001, active) Colapsar PRD/ARCH/DESIGN em ADRs tagueados por domínio — piloto aplicado no repo (PRD âncora + ARCH/DESIGN views; AGENTS.md raiz+seed e seed/SCAFFOLD.md atualizados).
+## v0.4.0 — Método e seed
+- **R-007 — Reexecutar a conformância com o `seed/AGENTS.md` novo** · Estado: planejado
+  **Objetivo:** o seed mudou bastante (ROADMAP com IDs, pronto/evidência, check, CI); validar em ≥2 modelos pelo [roteiro](CONFORMANCE.md) e acrescentar critérios para as regras novas (ex.: não reutilizar ID; registrar evidência com resultado).
+  **Escopo:** rodar o roteiro e registrar em [field-notes](field-notes/INDEX.md). **Validação:** matriz preenchida em nota de campo.
+- **R-008 — Validar tags `@ADR/@PRD/@ROADMAP` no `check`** · Estado: planejado
+  **Objetivo:** tornar enforceável a regra de rastreabilidade ([ADR 0012](adr/0012-validacao-automatica-tags.md), `proposed`). **Dependências:** o dono ratificar a ADR 0012; hoje o código de `packages/vscode` não tem tags.
+  **Validação:** `check` falha em entidade pública sem tag.
+- **R-009 — Ratificar ou rejeitar o estilo verboso do seed** · Estado: aguardando decisão do dono
+  **Contexto:** o `seed/AGENTS.md` já está no estilo da [ADR 0007](adr/0007-instruction-style-verbose.md) (`proposed`). **Validação:** decisão do dono; depois mudar o status da ADR.
+- **R-010 — Decidir ARCHITECTURE/DESIGN: views virtuais × arquivos materializados** · Estado: aguardando decisão do dono
+  **Contexto:** a [ADR 0001](adr/0001-collapse-docs-into-adrs.md) mantém views virtuais (só o plugin as monta); sem o plugin, um agente reconstrói o estado atual a partir das ADRs. **Opções:** manter; gerar `ARCHITECTURE.md` por script; módulo opcional no seed. **Validação:** ADR com a decisão.
+- **R-011 — Módulo BDD opcional no seed** · Estado: adiado
+  **Objetivo:** cenários Dado/Quando/Então ligados a testes, só para projetos em que comportamento observável importa. **Adiado até** o viewer estabilizar.
+- **R-012 — Nota de "sem build/segredos" no `AGENTS.md` (spec agents.md)** · Estado: aguardando aprovação do dono (I2)
+  **Objetivo:** alinhar às seções recomendadas da spec [agents.md](https://agents.md). **Validação:** aprovação explícita antes de editar o `AGENTS.md`.

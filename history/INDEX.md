@@ -1,11 +1,9 @@
-Índice do arquivado (iterações/decisões mortas). Off-graph.
+Índice do arquivado (roadmap concluído, decisões mortas). Fora da leitura padrão.
 
-# History — Arquivado (off-graph)
+# History — Arquivado
 
-Este índice lista iterações, decisões e artefatos que deixaram de vigorar. Fica **fora do grafo** (`history/` não recebe `[[wikilink]]` de docs ativas) para não poluir a navegação corrente.
+Lista o que deixou de vigorar. Fica **fora da leitura padrão**: só consulte para uma pergunta histórica, migração ou investigação de regressão. Os arquivos aqui são preservados sem reescrita e **não são verificados** pelo `check` (só os `INDEX.md`).
 
-| Item | Origem | Motivo | Estado |
-|------|--------|--------|--------|
-| — | — | — | — |
+- [Roadmap arquivado](roadmap/INDEX.md) — itens concluídos/cancelados/substituídos.
 
-> Ao arquivar: mover o conteúdo para `history/` e registrar a linha acima; em `docs/adr/INDEX.md` marcar a ADR como `superseded`.
+> Ao arquivar uma ADR: manter o arquivo em `docs/adr/`, marcar `superseded`/`deprecated` no índice e apontar a substituta; só mova para cá conteúdo que não seja ADR.

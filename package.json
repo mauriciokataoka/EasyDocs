@@ -1,0 +1,8 @@
+{
+  "name": "easydocs",
+  "private": true,
+  "scripts": {
+    "check": "node seed/scripts/check.mjs --ignore seed && npm test --prefix packages/vscode",
+    "hooks": "git config core.hooksPath .githooks"
+  }
+}

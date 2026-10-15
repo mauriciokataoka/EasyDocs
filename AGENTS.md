@@ -1,33 +1,52 @@
 # AGENTS.md
 
-> Segue a convenção [agents.md](https://agents.md). **Retomada:** leia este arquivo → [[ROADMAP]] (o que fazer) + `docs/adr/` (porquês). Tudo relevante referenciado aqui; arquivado é off-graph. **Este projeto retoma sem handoff: todo o estado vive nas docs — um agente novo lê este arquivo e continua.**
+> Segue a convenção [agents.md](https://agents.md). **Retomada:** leia este arquivo → [ROADMAP](docs/ROADMAP.md) (o que fazer) + [ADRs](docs/adr/INDEX.md) (porquês). **Este é o único lugar das regras normativas** (ADR 0016): não existe outro arquivo de metodologia. Todo o estado vive nas docs — um agente novo lê isto e continua.
 
 ## Início
 - Se `SCAFFOLD.md` existir nesta pasta (não procurar aninhado): execute-o **1×**. Senão: siga o método.
-- Config do agente: se você tem um arquivo de config padrão (ex.: `CLAUDE.md`), **crie-o na 1ª execução** referenciando [[AGENTS]] como **fonte canônica** (lida primeiro, com precedência), sem contrariá-lo. Não entra no Mapa; é privado. Use-o só p/ **rascunho efêmero seu**; o que vale p/ o projeto ou outro agente **vai p/ a doc canônica** (ver Método), nunca só no seu config — senão some na troca de agente.
+- Config do agente: se você tem um arquivo de config padrão (ex.: `CLAUDE.md`), **crie-o na 1ª execução** referenciando `AGENTS.md` como **fonte canônica** (lida primeiro, com precedência), sem contrariá-lo. É privado; use-o só p/ **rascunho efêmero seu**. O que vale p/ o projeto ou outro agente **vai p/ a doc canônica**, nunca só no seu config.
+- Antes de encerrar a sessão ou trocar de máquina: **commite** tudo (push só com aprovação). Trabalho não commitado não existe para outro agente.
 
-## Mapa (docs canônicas em `docs/`; raiz só `AGENTS`+`README`; não listar diretórios; arquivado = off-graph)
+## Mapa (docs canônicas em `docs/`; raiz só `AGENTS`+`README`; uma fonte por assunto)
 | Arquivo | Quando ler |
 |---|---|
-| [[PRD]] | âncora mínima: problema, público, não-objetivos, objetivo inicial (não é decisão) |
-| (views) ARCHITECTURE/DESIGN | **virtuais** (plugin): pastas `architecture`/`design` montadas a partir de ADRs por domínio — ver `docs/adr/INDEX.md` |
-| [[README]] | visão p/ humano |
-| [[ROADMAP]] | **sempre, p/ retomar** — afazeres/pendências |
-| `docs/adr/INDEX.md` | decisões e porquês — **sob demanda**; status no índice |
-| [[CHANGELOG]] | histórico de versões |
-| `history/INDEX.md` | arquivado — off-graph (só se vasculhar) |
+| [PRD](docs/PRD.md) | âncora mínima: problema, público, não-objetivos, objetivo inicial (não é decisão) |
+| (views) ARCHITECTURE/DESIGN | **virtuais** (plugin): montadas a partir das ADRs por domínio — ver [índice de ADRs](docs/adr/INDEX.md) |
+| [README](README.md) | visão p/ humano |
+| [ROADMAP](docs/ROADMAP.md) | **sempre, p/ retomar** — só trabalho aberto |
+| [ADRs](docs/adr/INDEX.md) | decisões e porquês — **sob demanda**; status no índice |
+| [CHANGELOG](docs/CHANGELOG.md) | histórico de versões |
+| [field-notes](docs/field-notes/INDEX.md) | evidências datadas de validação/uso (só se investigar) |
+| [history](history/INDEX.md) | arquivado (roadmap concluído, decisões mortas) — fora da leitura padrão |
 
 ## Método
-- Iteração = brainstorm: questionar, checar consistência, digerir em detalhe **na doc** — o chat recebe só o essencial (ver `Resposta` abaixo), nunca fica vazio de conteúdo útil.
+- Iteração = brainstorm: questionar, checar consistência, digerir em detalhe **na doc** — o chat recebe só o essencial, nunca vazio de conteúdo útil.
 - **Resposta:** o definitivo/simples → responda já, curto. O que pede decisão ou altera doc → vira tópico. No chat: a resposta + os **títulos** dos pendentes + a **descrição de UM só** tópico (o mais importante × abrangência) + **um pedido**.
-- **Documentar é execução direta, sem pedir permissão** — de forma **objetiva** (≠ reduzida): **tópico = título + explicação**, nunca só o título (outro agente não deve inventar a explicação de um título alheio). Todos os tópicos ficam documentados em detalhe, autossuficientes p/ qualquer agente retomar e apresentá-los *as-it-is*.
-- **Decisões significativas → ADR** (`docs/adr/`, formato Nygard; indexadas; aberta = `status: proposed`).
-- **Afazeres → [[ROADMAP]]**.
-- **Persistência imediata:** doc/ROADMAP atualizados **antes** de responder no chat — a conversa pode ser abandonada a qualquer momento e outro agente retoma **só pelas docs**, sem handoff. O que **aguarda decisão do dono** entra no [[ROADMAP]] (ou ADR `proposed`) **antes** da pergunta no chat; sai quando decidido.
-- A cada iteração, revisar [[ROADMAP]] + ADRs `proposed` (um brainstorm pode resolver sem o usuário notar).
-- Doc canônica = estado atual; `history/` = off-graph.
-- **Formato Obsidian:** refs entre docs = `[[wikilink]]` (grafo = mapa mental); `README` usa links padrão (GitHub); `history/` fica fora do grafo.
-- **Propor→aprovar→executar** = só p/ mudança **estrutural** (I0: novo tipo de artefato/termo/doc/pasta) ou p/ alterar **este arquivo** (I2: exige aprovação explícita do dono do projeto — nunca por sua iniciativa). Atualizar **conteúdo** de PRD/ARCHITECTURE/DESIGN/README/ROADMAP em resposta direta a uma instrução do usuário (nome, objetivo, rename, item do ROADMAP) é execução direta.
+- **Documentar é execução direta, sem pedir permissão**, de forma **objetiva** (≠ reduzida): **tópico = título + explicação**, nunca só o título. Autossuficiente p/ qualquer agente retomar.
+- **Persistência imediata:** doc/ROADMAP atualizados **antes** de responder no chat. O que **aguarda decisão do dono** entra no ROADMAP (ou ADR `proposed`) **antes** da pergunta; sai quando decidido. A cada iteração, revisar ROADMAP + ADRs `proposed`.
+- **Estado atual ≠ histórico:** docs canônicas = estado atual; o histórico fica em ADRs, field-notes e `history/`. Não duplicar texto entre docs; apontar com link.
+- **Propor→aprovar→executar** = só p/ mudança **estrutural** (I0) ou p/ alterar **este arquivo** (I2). Atualizar **conteúdo** de PRD/README/ROADMAP em resposta direta a instrução do usuário é execução direta.
+
+### Links e referências (ADR 0013)
+- Entre docs: link Markdown **relativo** `[ADR-0008](adr/0008-nome.md)`, com âncora p/ seção `[R-004](ROADMAP.md#r-004--titulo)`; p/ código com linha `[x.ts](../src/x.ts#L10)`. **Sem `[[wikilinks]]`.**
+- Menção curta por **ID estável** em texto: `R-004`, `ADR-0008`. IDs nunca mudam nem são reutilizados.
+
+### ADRs (ADR 0016)
+- Decisão significativa → `docs/adr/NNNN-titulo.md` (modelo [0000](docs/adr/0000-template.md): Status · Domínio · Contexto · Decisão · **Alternativas** · Consequências), indexada em [INDEX](docs/adr/INDEX.md).
+- Status: `proposed` (sugestão; **não orienta implementação importante sem aprovação**) · `accepted` (vigente) · `superseded` (aponta a substituta) · `deprecated`. Nunca apagar ADR.
+
+### ROADMAP (ADR 0014)
+- **Só trabalho aberto.** Seções `## vX.Y.Z` (a **posição** do card gera a versão — ADR 0008). Item = `- **R-NNN — Título** · Estado: <estado>` + linhas indentadas `**Objetivo:**`, `**Escopo:**`, `**Validação:**` (obrigatórios) e, quando couber, `**Fora de escopo:**`, `**Dependências:**`, `**Riscos:**`, `**Critérios de pronto:**`. Entenda sem a conversa original.
+- **ID `R-NNN` permanente, nunca reutilizado** (nem após concluir). Antes de criar, consulte o ROADMAP e [history/roadmap/INDEX](history/roadmap/INDEX.md).
+- **Estados:** planejado · em implementação · aguardando validação · pronto para revisão · concluído · cancelado · substituído (cancelado/substituído com motivo e link da decisão).
+- **Não é diário:** evidência vai p/ `docs/field-notes/` (`AAAA-MM-DD-assunto.md`, imutável, indexada); o item só linka e guarda o estado.
+- **Decisão que sobrevive à tarefa → ADR**; o item continua sendo o registro da execução.
+
+### Pronto, evidência e testes (ADR 0014; tudo **conforme aplicável** ao escopo e risco)
+- **Pronto p/ revisão** quando: implementação dentro do escopo; testes relevantes passam; validação manual prevista feita; docs/contratos/ADRs afetados atualizados; limitações e riscos residuais registrados; nenhuma regressão conhecida sem decisão explícita.
+- **Pronto p/ revisão ≠ concluído.** Só o **aceite do dono** conclui: então mova o item **íntegro** p/ `history/roadmap/R-NNN-titulo.md` (acrescente data, resultado, evidências, limitações — sem resumir o original), indexe em `history/roadmap/INDEX.md` e remova do ROADMAP. Código sozinho não comprova critério de pronto.
+- **Evidência honesta:** cada evidência vale p/ o subitem que prova, com data, ambiente/revisão e resultado `aprovado | falhou | não executado`; registre a **causa** de falhas e de verificações não feitas. **Nunca apresente verificação parcial como aprovação completa.**
+- **Testes:** bug corrigido ⇒ teste de regressão. TDD seletivo: teste primeiro p/ regra nova, de risco alto ou isolável; UI/integração difícil ⇒ validação manual registrada. **Antes de concluir mudança de código, rode o `check`** (abaixo).
 
 ## Invariantes
 - **I0** novo **artefato/termo/doc/pasta**: propor→ratificar→codificar aqui→usar — mudança **abrangente** (registre como ADR, com justificativa); termos preferem o **padrão da indústria**.
@@ -36,17 +55,9 @@
 
 ## Comportamento / Operação
 - Objetivo claro (senão pergunte); pergunta é pergunta; "né?/não?" confirma premissa; tarefa grande→plano; **doc = fonte de verdade**.
-- Git imediato (repo próprio); **push só com aprovação**; **commits obrigatoriamente em Conventional Commits** (formato: `type(scope): description`).
-  - **Types obrigatórios:** `feat` (feature), `fix` (bugfix), `docs` (documentação), `refactor` (refatoração), `test` (testes), `chore` (tarefas)
-  - **Scope opcional:** ex: `feat(viewer):`, `fix(core):`
-  - **Breaking change:** adicionar `!` após type/scope (ex: `feat!:`) ou footer `BREAKING CHANGE:`
-  - **Referência a ADR:** quando aplicável, incluir no footer (ex: `Refs: ADR-0008`)
-- **Versão** ([SemVer](https://semver.org/)): corrente = **tag `vX.Y.Z`**, espelhada no topo do `CHANGELOG` ([Keep a Changelog](https://keepachangelog.com)); bump pelos commits (`fix`→patch, `feat`→minor, `!`/`BREAKING`→major); nasce em `0.1.0`. Release = mover `[Unreleased]`→`[X.Y.Z] - data` + criar a tag. Com código, o manifesto nativo (`package.json`…) espelha a tag.
-- **Git tags**: usar formato `vX.Y.Z` (prefixo `v` + SemVer). Tags são annotated (com mensagem) e seguem o conteúdo do CHANGELOG. Ex: `git tag -a v0.2.0 -m "Release 0.2.0"`
-- **Tags no código**: comentários inline para rastreabilidade código↔docs. Formato: `// @TAG valor`.
-  - `@ADR-XXXX` - referência a ADR (ex: `// @ADR-0008`)
-  - `@PRD` - referência ao PRD (ex: `// @PRD objetivo-inicial`)
-  - `@ROADMAP` - referência ao ROADMAP (ex: `// @ROADMAP item-123`)
-  - `@since X.Y.Z` - desde quando existe (ex: `// @since 0.2.0`)
-  - `@deprecated X.Y.Z` - obsoleto desde (ex: `// @deprecated 0.3.0`)
-  - Toda entidade pública (classe, função, módulo) DEVE ter pelo menos uma referência a doc (@ADR, @PRD ou @ROADMAP).
+- Git imediato (repo próprio); **push só com aprovação**; **commits obrigatoriamente em Conventional Commits** (`type(scope): description`).
+  - **Types:** `feat`, `fix`, `docs`, `refactor`, `test`, `chore`. **Scope** opcional (`feat(viewer):`). **Breaking:** `!` após type/scope ou footer `BREAKING CHANGE:`. **ADR:** footer `Refs: ADR-0008`.
+- **Verificação (ADR 0015):** comando único do projeto = `npm run check` (= `node seed/scripts/check.mjs --ignore seed` + testes do viewer; em projetos gerados o script fica em `scripts/check.mjs`). Hook `pre-push` em `.githooks/` (ativar: `npm run hooks`). **Sem GitHub Actions por padrão** (cota gratuita limitada); CI só se justificada e **mínima**: `pull_request`+`main`, só `ubuntu-latest`, `cancel-in-progress`, `timeout-minutes`, `paths-ignore` de docs, `workflow_dispatch`; macOS/Windows só manual.
+- **Versão** ([SemVer](https://semver.org/)): corrente = **tag `vX.Y.Z`**, espelhada no topo do `CHANGELOG` ([Keep a Changelog](https://keepachangelog.com)); bump pelos commits (`fix`→patch, `feat`→minor, `!`/`BREAKING`→major); nasce em `0.1.0`. Release = mover `[Unreleased]`→`[X.Y.Z] - data` + criar a tag. Manifestos nativos (`package.json`…) espelham a versão; o `check` valida.
+- **Git tags**: `vX.Y.Z`, annotated, seguindo o CHANGELOG. Ex: `git tag -a v0.2.0 -m "Release 0.2.0"`.
+- **Tags no código**: comentários `// @TAG valor` p/ rastreabilidade código↔docs: `@ADR-XXXX`, `@PRD`, `@ROADMAP` (ex.: `// @ROADMAP R-004`), `@since X.Y.Z`, `@deprecated X.Y.Z`. Toda entidade pública (classe, função, módulo) DEVE ter ao menos uma referência a doc (@ADR, @PRD ou @ROADMAP). Validação automática: ADR 0012 (`proposed`).

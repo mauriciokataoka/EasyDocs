@@ -4,6 +4,17 @@ Histórico de versões. Formato Keep a Changelog (keepachangelog.com); versionam
 
 Todas as versões significativas documentadas aqui. O formato segue [Keep a Changelog](https://keepachangelog.com) e o versionamento [SemVer](https://semver.org).
 
+## [Unreleased]
+
+### Changed
+- **Metodologia importada da documentação do ArchiveGuard, generalizada (ADRs 0013–0016):** `AGENTS.md` (raiz e `seed/`) reescrito como fonte normativa única; ROADMAP passa a conter só trabalho aberto, com IDs `R-NNN` permanentes, estados e critérios de pronto "conforme aplicável"; concluídos vão íntegros para `history/roadmap/`; evidência honesta e testes de regressão como regra.
+- **Fim dos wikilinks/Obsidian (ADR 0013):** links Markdown relativos com âncora, IDs estáveis em texto; ADR 0003 superada nessa parte.
+- **Status de ADR padronizado** (`proposed | accepted | superseded | deprecated`; `active` abolido); modelo de ADR ganha `Alternativas`.
+
+### Added
+- `docs/field-notes/` (evidências datadas e imutáveis).
+- `check` local: `seed/scripts/check.mjs` (links, âncoras, wikilinks, ADRs × INDEX, IDs únicos, versão × CHANGELOG), `npm run check`, hook `.githooks/pre-push` (`npm run hooks`). Política de CI mínima/opt-in (ADR 0015); nenhum workflow criado.
+
 ## [0.2.0] - 2026-07-13
 
 ### Added
