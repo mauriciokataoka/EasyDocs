@@ -21,7 +21,7 @@ const hasNpmCheck = fs.existsSync(pkg) && JSON.parse(fs.readFileSync(pkg, "utf8"
 execFileSync(hasNpmCheck ? "npm" : "node", hasNpmCheck ? ["run", "check"] : ["scripts/check.mjs"], { cwd: root, stdio: "inherit" });
 
 let tag = "";
-try { tag = git("describe", "--tags", "--abbrev=0", "--match", "v[0-9]*"); } catch { /* sem tag: base 0.0.0 */ }
+try { tag = execFileSync("git", ["describe", "--tags", "--abbrev=0", "--match", "v[0-9]*"], { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim(); } catch { /* sem tag: base 0.0.0 */ }
 const [maj, min, pat] = (tag.slice(1) || "0.0.0").split(".").map(Number);
 
 let bump = arg("--bump");
